@@ -11,6 +11,7 @@ Vue.component('directivas-vue', {
             <p>Directiva v-bind o :[nombre del atributo]. Ejemplo: <a v-text="link.texto" v-bind:href="link.href" :title="link.titulo"></a></p>
             <directiva-HTML></directiva-HTML>
             <directivaShow/>
+            <directivaIf/>
         </div>
     `,
     data() {
@@ -28,6 +29,7 @@ Vue.component('directivas-vue', {
     },
     components: {
         'directiva-HTML': directivaHTML,
-        directivaShow
+        directivaShow,
+        directivaIf
     }
 });
