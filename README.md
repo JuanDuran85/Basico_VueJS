@@ -15,6 +15,7 @@ VueJS permite crear aplicaciones de una sola página (SPA), por lo que sólo se 
 * Licencia MIT: se publicó bajo el amparo de esta licencia.
 * Emplea una variación del Modelo Vista Controlador (MVC) denominada modelo–vista–modelo de vista (MVVM), el cual, es un patrón de arquitectura de software y se caracteriza por tratar de desacoplar lo máximo posible la interfaz de usuario de la lógica de la aplicación. El modelo representa la data, la vista es donde esta el usuario (html), el modelo vista es la conexion entre el modelo y la vista, se encarga de procesar los datos mediante los computed values.
 * VueJS trabaja con componentes, los cuales, son elementos aislados que pueden o no pueden depender de otro elemento. por lo tanto, realiza tareas especificas y puede contener componentes hijos.
+* Tambien se utiliza el termino "Directivas", las cuales, son atributos especiales que inician con "v-" mas el nombre de la directiva. Sirven para que VueJS insteractue de forma eficiente con el DOM (atributos o asignando eventos). Para mayor informacion, revisar: []().
 
 ## Instalación.
 
@@ -35,7 +36,7 @@ VueJS en su página web oficial, incluye dos CDN para poder incluir en el proyec
 
 ```HTML
 <body>
-    <div id="vm">{{variable}}</div>
+    <div id="vm">{{nombre de variable}}</div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/app.js"></script>
 </body>
@@ -47,7 +48,7 @@ VueJS en su página web oficial, incluye dos CDN para poder incluir en el proyec
 const vm = new Vue({
     el: '#vm',
     data: {
-        variable : 'valor'
+        nombre de variable : 'valor de la varibale'
     }
 });
 ```
