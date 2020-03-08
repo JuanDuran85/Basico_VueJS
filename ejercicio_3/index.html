@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VueJS - Ejercicio 3</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="vm">
-
+        <saludo-inicial></saludo-inicial>
+        <directivas-vue></directivas-vue>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src=""></script>
-</body>
+    <script src="components/saludoInicial.js"></script>
+    <script src="components/directivasVue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#vm"
+      });
+    </script>
+  </body>
 </html>
