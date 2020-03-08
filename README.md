@@ -2,7 +2,7 @@
 
 VueJS es un marco (framework) progresivo para construir interfaces de usuario. A diferencia de otros framework, VueJS está diseñado desde cero para ser gradualmente adoptable. La biblioteca principal se centra solo en la capa de vista y es fácil de recoger e integrar con otras bibliotecas o proyectos existentes. Por otro lado, VueJS también es perfectamente capaz de impulsar aplicaciones sofisticadas de una sola página cuando se usa en combinación con herramientas modernas y bibliotecas de soporte.
 
-VueJS permite crear aplicaciones de una sola página (SPA), por lo que sólo se refrescan ciertas secciones de la página.
+VueJS permite crear aplicaciones de una sola página [SPA](https://desarrolloweb.com/articulos/que-es-una-spa.html), por lo que sólo se refrescan ciertas secciones de la página cuando es requerido.
 
 ##  Características
 
@@ -13,9 +13,14 @@ VueJS permite crear aplicaciones de una sola página (SPA), por lo que sólo se 
 * Optimizado: Su core ocupa 74KB, como ves es bastante liviano.
 * Comunidad: Va creciendo a un ritmo importante con más 66500 estrellas en GitHub y 130 personas contribuyendo al core cada día.
 * Licencia MIT: se publicó bajo el amparo de esta licencia.
-* Emplea una variación del Modelo Vista Controlador (MVC) denominada modelo–vista–modelo de vista (MVVM), el cual, es un patrón de arquitectura de software y se caracteriza por tratar de desacoplar lo máximo posible la interfaz de usuario de la lógica de la aplicación. El modelo representa la data, la vista es donde esta el usuario (html), el modelo vista es la conexion entre el modelo y la vista, se encarga de procesar los datos mediante los computed values.
-* VueJS trabaja con componentes, los cuales, son elementos aislados que pueden o no pueden depender de otro elemento. por lo tanto, realiza tareas especificas y puede contener componentes hijos.
-* Tambien se utiliza el termino "Directivas", las cuales, son atributos especiales que inician con "v-" mas el nombre de la directiva. Sirven para que VueJS insteractue de forma eficiente con el DOM (atributos o asignando eventos). Para mayor informacion, revisar: []().
+* Emplea una variación del *Modelo Vista Controlador* (MVC) denominada **modelo–vista–modelo de vista** (MVVM), el cual, es un patrón de arquitectura de software y se caracteriza por tratar de desacoplar lo máximo posible la interfaz de usuario de la lógica de la aplicación. El modelo representa la data, la vista es donde esta el usuario (html), el modelo vista es la conexion entre el modelo y la vista, se encarga de procesar los datos mediante los computed values.
+* VueJS trabaja con **Componentes**, los cuales, son elementos aislados que pueden o no pueden depender de otro elemento. por lo tanto, realiza tareas especificas y puede contener componentes hijos. En otras palabras, los cpmponentes de VueJS registran u obtienen un componente global. El registro también establece automáticamente la propiedad "name" del componente igual al "id" especificado. Para mayor información, revisar: [Componentes API VueJS](https://es.vuejs.org/v2/guide/components.html).
+
+```JS 
+Vue.component( id, [definition] )
+```
+
+* Tambien se utiliza el termino **"Directivas"**, las cuales, son atributos especiales que inician con "v-" mas el nombre de la directiva. Sirven para que VueJS insteractue de forma eficiente con el DOM (atributos o asignando eventos). Para mayor informacion, revisar: [Directivas API VueJS](https://es.vuejs.org/v2/api/index.html#Directivas).
 
 ## Instalación.
 
@@ -53,6 +58,6 @@ const vm = new Vue({
 });
 ```
 
-*Nota:* Como una convención, se suele usar la variable vm (abreviación de ViewModel) para hacer referencia a la instancia de Vue. Cuando se crea una instancia de Vue, se pasa un objeto options, es decir, cuando una instancia Vue es creada, agrega todas las propiedades encontradas en su objeto "data" al sistema de reactividad de Vue. Cuando los valores de estas propiedades cambian, la vista “reaccionará”, actualizándose para coincidir con los nuevos valores. Cuando estos datos cambian, la vista volverá a renderizarse. Es preciso señalar que las propiedades en data solo son reactivas si ya existían cuando se creó la instancia.
+*Nota:* Como una convención, se suele usar la variable vm (abreviación de ViewModel) para hacer referencia a la instancia de Vue. Cuando se crea una instancia de Vue, se pasan opciones al objeto, es decir, cuando una instancia Vue es creada, agrega todas las propiedades encontradas en su objeto "data" al sistema de reactividad de Vue. Cuando los valores de estas propiedades cambian, la vista “reaccionará”, actualizándose para coincidir con los nuevos valores. Cuando estos datos cambian, la vista volverá a renderizarse. Es preciso señalar que las propiedades en data solo son reactivas si ya existían cuando se creó la instancia.
 
 
