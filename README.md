@@ -27,3 +27,30 @@ VueJS en su página web oficial, incluye dos CDN para poder incluir en el proyec
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 
+## Iniciando un Proyecto con VueJS
+
+1. Primero se debe identificar la forma de incluir VueJS en nuestro proyecto, ya sea por CDN, descargando el paquete, o instalando Vue-Cli.
+2. Crear un archivo HTML donde irá la vista de nuestro modelo... En este archivo se debe agregar el CDN o direccion al paquete de desarrollo de Vue y enlazar el archivo externo. Dentro del `<body>` se debe crear una estructura con el id que sera el elemento principal de VueJS.
+
+```HTML
+<body>
+    <div id="vm">{{variable}}</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+```
+
+1. Ahora dentro de una etiqueta `<script>` de html, o en un archivo externo de JavaScript, se debe inicializar una instanacia para Vue, debido a que cada aplicación de Vue se comienza creando una nueva Instancia de Vue con la función Vue, en otras palabras, una aplicación Vue está conformada por una instancia Vue raíz creada con `new Vue`, utilizando la estructura:
+
+```JS
+const vm = new Vue({
+    el: '#vm',
+    data: {
+        variable : 'valor'
+    }
+});
+```
+
+*Nota:* Como una convención, se suele usar la variable vm (abreviación de ViewModel) para hacer referencia a la instancia de Vue. Cuando se crea una instancia de Vue, se pasa un objeto options, es decir, cuando una instancia Vue es creada, agrega todas las propiedades encontradas en su objeto "data" al sistema de reactividad de Vue. Cuando los valores de estas propiedades cambian, la vista “reaccionará”, actualizándose para coincidir con los nuevos valores. Cuando estos datos cambian, la vista volverá a renderizarse. Es preciso señalar que las propiedades en data solo son reactivas si ya existían cuando se creó la instancia.
+
+
