@@ -6,11 +6,14 @@
     <title>VueJS - Ejercicio 2</title>
 </head>
 <body>
-    <h1>VueJS</h1>
     <div id="vm">
-        <p>{{mensaje}}</p>
+        <!-- Agregando componente en VueJS con template de HTML-->
+        <saludo-inicial></saludo-inicial>
+        <!--Insertando variable desde instancia de VuejS-->
+        <h3>{{mensaje}}</h3>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/componentes/saludoInicial.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

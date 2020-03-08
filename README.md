@@ -13,7 +13,8 @@ VueJS permite crear aplicaciones de una sola página (SPA), por lo que sólo se 
 * Optimizado: Su core ocupa 74KB, como ves es bastante liviano.
 * Comunidad: Va creciendo a un ritmo importante con más 66500 estrellas en GitHub y 130 personas contribuyendo al core cada día.
 * Licencia MIT: se publicó bajo el amparo de esta licencia.
-* Emplea una variación del Modelo Vista Controlador (MVC) denominada modelo–vista–modelo de vista (MVVM), el cual, es un patrón de arquitectura de software y se caracteriza por tratar de desacoplar lo máximo posible la interfaz de usuario de la lógica de la aplicación. El modelo representa la data, la vista es donde esta el usuario (html), el modelo vista es la conexion entre el modelo y la vista, se encarga de procesar los datos mediante los computed values. 
+* Emplea una variación del Modelo Vista Controlador (MVC) denominada modelo–vista–modelo de vista (MVVM), el cual, es un patrón de arquitectura de software y se caracteriza por tratar de desacoplar lo máximo posible la interfaz de usuario de la lógica de la aplicación. El modelo representa la data, la vista es donde esta el usuario (html), el modelo vista es la conexion entre el modelo y la vista, se encarga de procesar los datos mediante los computed values.
+* VueJS trabaja con componentes, los cuales, son elementos aislados que pueden o no pueden depender de otro elemento. por lo tanto, realiza tareas especificas y puede contener componentes hijos.
 
 ## Instalación.
 
@@ -40,7 +41,7 @@ VueJS en su página web oficial, incluye dos CDN para poder incluir en el proyec
 </body>
 ```
 
-1. Ahora dentro de una etiqueta `<script>` de html, o en un archivo externo de JavaScript, se debe inicializar una instanacia para Vue, debido a que cada aplicación de Vue se comienza creando una nueva Instancia de Vue con la función Vue, en otras palabras, una aplicación Vue está conformada por una instancia Vue raíz creada con `new Vue`, utilizando la estructura:
+3. Ahora dentro de una etiqueta `<script>` de html, o en un archivo externo de JavaScript, se debe inicializar una instanacia para Vue, debido a que cada aplicación de Vue se comienza creando una nueva Instancia de Vue con la función Vue, en otras palabras, una aplicación Vue está conformada por una instancia Vue raíz creada con `new Vue`, utilizando la estructura:
 
 ```JS
 const vm = new Vue({

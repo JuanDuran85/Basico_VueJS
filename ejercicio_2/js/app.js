@@ -3,7 +3,9 @@
 */
 const vm = new Vue({
     el: '#vm',
-    data: {
-        mensaje: 'Ejemplo básico 2 VueJS'
+    data () {
+        return {
+            mensaje: 'Ejemplo básico 2 VueJS'
+        }
     }
 });
