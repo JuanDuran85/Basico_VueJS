@@ -10,6 +10,7 @@ Vue.component('directivas-vue', {
             <h2 v-text="titulo3"></h2>
             <p>Directiva v-bind o :[nombre del atributo]. Ejemplo: <a v-text="link.texto" v-bind:href="link.href" :title="link.titulo"></a></p>
             <directiva-HTML></directiva-HTML>
+            <directivaShow/>
         </div>
     `,
     data() {
@@ -26,14 +27,7 @@ Vue.component('directivas-vue', {
         }
     },
     components: {
-        'directiva-HTML': directivaHTML
+        'directiva-HTML': directivaHTML,
+        directivaShow
     }
 });
-
-/* Directivas Utilizadas:
-    -> v-text: Actualiza el textContent del elemento. No renderiza las estiquetas HTML dentro de las varibales.
-     
-    -> v-bind: Enlaza dinámicamente uno o más atributos, o una propiedad de un componente a una expresión HTML. Cuando se utiliza para enlazar el atributo class o style, soporta atributos adicionales tales como Arreglos u Objetos. En cambio, cuando se utiliza para enlazar una propiedad, la propiedad debe ser declarada en el componente hijo de forma acorde. Pero cuando se utiliza sin argumento, puede ser utilizado para enlazar un objeto que contega pares nombre-valor de atributos. Note que en este modo los atributos class y style no soportan Arreglo u Objetos.
-
-    -> v-html: renderiza directamente las etiquetas que se encuentren en las varibales.
-*/
