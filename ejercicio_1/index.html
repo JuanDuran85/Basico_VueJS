@@ -8,12 +8,17 @@
 <body>
     <h1>Primer Ejemplo con VueJS</h1>
     <!-- Declarando el ambito de nuestro VueJS. La referencia debe ser unica dentro del body, no puede ser el mismo body o html  -->
-    <div id="vm">
+    <section id="app">
         <p>
             {{mensaje}}
             {{suma}}
         </p>
-    </div>
+        <p>{{mensaje2}}</p>
+        <p>Patito {{patito}}</p>
+    </section>
+    <section id="vm">
+        <p>{{suma}}</p>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/app.js"></script>
 </body>

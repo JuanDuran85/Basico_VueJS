@@ -6,12 +6,16 @@ Nota Importante: En el template solo puede existir una estructura padre. No pued
 
 Vue.component('saludo-inicial',{
     template: `
-    <header>
-        <h1>{{titulo}}</h1>
-    </header>`,
+    <div>
+        <header>
+            <h1 class="clase1">{{titulo}}</h1>
+        </header>
+        <button type="button" class="btn btn-primary">Boton</button>
+    </div>
+    `,
     data(){
         return {
             titulo: `Iniciando VueJS`
         }
     }
-})
+});

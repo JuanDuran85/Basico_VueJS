@@ -2,10 +2,20 @@
     Se crea la instancia de VueJS con la palabra reservada new Vue({}), y se pasa como parametro el elemento al cual se le creara el ambito de VueJS
 */
 var vm = new Vue({
-    el: '#vm',
+    el: '#app',
     data: {
         mensaje: "Iniciando VueJS - Grupo ",
-        suma: 9-8
+        suma: 9-8,
+        mensaje2: "segundo mensaje",
+        patito: "feo"
+    }
+})
+
+var app = new Vue({
+    el: '#vm',
+    data: {
+        mensaje: "Iniciando VueJS desde app 2",
+        suma: 23-46
     }
 })
 
