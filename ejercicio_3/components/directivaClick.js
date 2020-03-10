@@ -8,7 +8,7 @@ let directivaClick = {
                 <img alt="logo" :src="srcImg">
                 <p>Se ve y se oculta con el boton usando directivas v-on:click o @click y v-if</p>
             </div>
-            <button v-on:click="ver_ocultar">Mostrar/Ocultar</button>
+            <button @click="ver_ocultar">Mostrar/Ocultar</button>
         </div>
     
     `,
