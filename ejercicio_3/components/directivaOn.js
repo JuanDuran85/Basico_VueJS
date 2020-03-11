@@ -29,8 +29,7 @@ let directivaOn = {
                 this.entradas--;
                 return alert(`Entrada para la pelicula ${this.pelicula} comprada`);
             }
-            return alert("Ya no quedan entradas")
-            
+            return alert("Ya no quedan entradas");
         }
     },
 }
