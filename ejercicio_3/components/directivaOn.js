@@ -1,6 +1,6 @@
 let directivaOn = {
     template: `
-        <div @click="mensaje_f">
+        <div>
         <hr>
             <h2 v-text="titulo"></h2>
             <p v-html="mensaje"></p>

@@ -16,25 +16,26 @@ let directivaFor = {
             </ul>
             <p>Mostrando valores para un objeto con v-for</p>
             <ul>
-                <li v-for="(val, key, index) in objeto_nombres">{{index}} --> {{key}}: {{val}}</li>
+                <li v-for="(val, key, index) in objeto_nombres">
+                {{index}}-->{{key}}:{{val}}</li>
             </ul>
             <p>Mostrando valores para un objeto con v-for y :key en una tabla</p>
             <table style="border: 1px solid black">
                 <tbody>
                     <tr>
                         <td style="border: 1px solid black">Numero</td>
-                        <td style="border: 1px solid black">Ciudad</td>
+                        <td style="border: 1px solid black">País</td>
                         <td style="border: 1px solid black">Moneda</td>
                     </tr>
                     <tr v-for="(moneda, llave, index) in objeto_moneda" :key="index">
-                        <td style="border: 1px solid black">{{index}}</td>
+                        <td style="border: 1px solid black">{{index+1}}</td>
                         <td style="border: 1px solid black">{{llave}}</td>
                         <td style="border: 1px solid black">{{moneda}}</td>
                     </tr>
                 </tbody>
             </table>
             <p>Mostrando valores para un objeto y array con v-for y :key</p>
-            <table style="border: 1px solid black">
+            <table class="table">
                 <tbody>
                     <tr>
                         <td style="border: 1px solid black">#</td>
