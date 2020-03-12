@@ -11,7 +11,7 @@ let directivaModel = {
                 Activado
             </label>
             <h4>Peliculas</h4>
-            <label v-for="(pelis,index) in peliculas" :key="index">
+            <label v-for="(pelis,index) in peliculas">
                 <input :value="pelis" type="checkbox" v-model="favoritas"/>
                 {{pelis}}
             </label>

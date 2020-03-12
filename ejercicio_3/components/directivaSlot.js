@@ -6,10 +6,8 @@ let directivaSlot = {
             <p v-html="mensaje"></p>
             <componenteBoton>
                 <template v-slot:accciones>
-                    Cerrar
                 </template>
                 <template #elementos>
-                    Modal
                 </template>
             </componenteBoton>
             <componenteContainer>

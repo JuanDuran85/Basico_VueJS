@@ -2,7 +2,7 @@ let directivaOnce = {
     template: `
         <div>
             <hr>
-            <h2 v-text="titulo" v-once></h2>
+            <h2 v-text="titulo"></h2>
             <p v-html="mensaje" v-once></p>
         </div>
     `,

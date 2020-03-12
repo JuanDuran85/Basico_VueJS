@@ -13,7 +13,7 @@ Vue.component('computed-properties', {
             usuario: {
                 nombre: "Juan",
                 apellido: "Duran",
-                fecha: 1985
+                fecha: 1970
             }
         }
     },
