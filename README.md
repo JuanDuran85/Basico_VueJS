@@ -123,4 +123,14 @@ vue create nombre_proyecto
 
 Se utilizan los métodos para ser mezclados dentro de una instancia de Vue. A los métodos, se puede acceder directamente en la instancia VM o usarlos en expresiones directivas. Todos los métodos tendrán su contexto this vinculado automáticamente a la instancia de Vue. *Importante:* no se debe usar una arrow function para definir un método (por ejemplo, ```funcion: () => this.a ++)```. La razón es que las arrow function vinculan el contexto principal, por lo que *"this"* no será la instancia de Vue como espera y *"this.a"* será undefined.
 
+## Propiedades Computadas
 
+Propiedades computadas a ser mezcladas dentro de la instancia de Vue. Todos los getters y setters tienen su contexto this vinculado automáticamente a la instancia de Vue. Tenga en cuenta que si usa una arrow function con una propiedad computada, this no será la instancia del componente, pero aún puede acceder a la instancia como primer argumento de la función:
+
+```JS
+computed: {
+  aDouble: vm => vm.a * 2
+}
+```
+
+Las propiedades computadas se almacenan en caché y solo se vuelven a calcular en los cambios de dependencia reactivos. Tenga en cuenta que si cierta dependencia está fuera del alcance de la instancia (es decir, no es reactiva), la propiedad computada no se actualizará.

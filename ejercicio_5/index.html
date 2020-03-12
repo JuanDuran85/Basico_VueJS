@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>VueJS - Ejercicio 5</title>
+  </head>
+  <body>
+    <div id="vm">
+      <!-- Los componentes se inician como una etiqueta, el nombre sale del ingresado en la estructura del componente-->
+        <computed-properties></computed-properties>
+    </div>
+    <!-- Con estos script llamamos a cada uno de los archivos por individual donde estan los componentes y los hijos de los componentes-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Este es el primer componente que se llama exactamente debajo del CDN de VueJS-->
+    <script src="computedComponents/computedProperties.js"></script>
+    <script>
+      // aquí iniciamos la instanacia de Vue.
+      const vm = new Vue({
+        el: "#vm"
+      });
+    </script>
+  </body>
+</html>
