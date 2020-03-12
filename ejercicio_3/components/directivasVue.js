@@ -9,15 +9,14 @@ Vue.component('directivas-vue', {
             <hr>
             <h2 v-text="titulo3"></h2>
             <p>Directiva v-bind o :[nombre del atributo]. Ejemplo: <a v-text="link.texto" v-bind:href="link.href" :title="link.titulo"></a></p>
-            <hr>
-            <h2>{{mensaje}}</h2>
-            <input v-model="mensaje">
             <directiva-HTML></directiva-HTML>
             <directivaShow/>
             <directivaIf/>
             <directivaClick/>
             <directivaFor/>
             <directivaOn/>
+            <directivaModel/>
+            <directivaSlot/>
         </div>
     `,
     data() {
@@ -31,7 +30,6 @@ Vue.component('directivas-vue', {
                 href: "https://es.vuejs.org/",
                 titulo: "Página principal en castellano de VueJS"
             },
-            mensaje: "Usando Directiva v-model"
         }
     },
     components: {
@@ -40,6 +38,8 @@ Vue.component('directivas-vue', {
         directivaIf,
         directivaClick,
         directivaFor,
-        directivaOn
+        directivaOn,
+        directivaModel,
+        directivaSlot
     }
 });
