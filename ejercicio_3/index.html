@@ -8,6 +8,7 @@
   </head>
   <body>
     <div id="vm">
+        <p v-cloak v-once>{{titulo}}</p>
       <!-- Los componentes se inician como una etiqueta, el nombre sale del ingresado en la estructura del componente-->
         <saludo-inicial></saludo-inicial>
         <directivas-vue></directivas-vue>
@@ -28,11 +29,17 @@
     <script src="components/componenteSlot/componenteContainer.js"></script>
     <script src="components/directivaSlot.js"></script>
     <script src="components/directivaPre.js"></script>
+    <script src="components/directivaOnce.js"></script>
     <script src="components/directivasVue.js"></script>
     <script>
       // aquí iniciamos la instanacia de Vue.
       const vm = new Vue({
-        el: "#vm"
+        el: "#vm",
+        data() {
+          return {
+            titulo: "Usando directiva v-cloak"
+          }
+        },
       });
     </script>
   </body>
