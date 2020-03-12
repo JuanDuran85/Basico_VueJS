@@ -11,7 +11,12 @@ let directivaSlot = {
                 <template #elementos>
                     Modal
                 </template>
-            </componenteBoton>     
+            </componenteBoton>
+            <componenteContainer>
+                <template #header></template>
+                <template #main></template>
+                <template #footer></template>
+            </componenteContainer>  
         </div>
     `,
     data() {
@@ -21,6 +26,7 @@ let directivaSlot = {
         }
     },
     components: {
-        componenteBoton
+        componenteBoton,
+        componenteContainer
     }
 };
