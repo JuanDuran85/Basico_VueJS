@@ -118,7 +118,7 @@ vue create nombre_proyecto
 11. **v-slot:** Utilizado en el contenido insertado dentro de componentes hijo para indicar a que slot con nombre pertenece el contenido.
 12. **v-cloak:** Esta directiva permanecerá en el elemento hasta que la instancia Vue asociada termine su compilación. Combinada con reglas de CSS tal como [v-cloak] { display: none }, esta directiva puede ser utilizada para esconder mustache bindings no compilados hasta que la instancia de Vue este lista.
 13. **v-once:** Renderizará el elemento/componente solo una vez. En renderizaciones posteriores, el elemento/componente y todos sus hijos serán tratados como contenido estático, y por lo tanto, salteados. Esto puede ser utilizado para optimizar la performance de actualización.
- 
+
 ## Métodos en VueJS
 
 Se utilizan los métodos para ser mezclados dentro de una instancia de Vue. A los métodos, se puede acceder directamente en la instancia VM o usarlos en expresiones directivas. Todos los métodos tendrán su contexto this vinculado automáticamente a la instancia de Vue. *Importante:* no se debe usar una arrow function para definir un método (por ejemplo, ```funcion: () => this.a ++)```. La razón es que las arrow function vinculan el contexto principal, por lo que *"this"* no será la instancia de Vue como espera y *"this.a"* será undefined.
@@ -134,3 +134,16 @@ computed: {
 ```
 
 Las propiedades computadas se almacenan en caché y solo se vuelven a calcular en los cambios de dependencia reactivos. Tenga en cuenta que si cierta dependencia está fuera del alcance de la instancia (es decir, no es reactiva), la propiedad computada no se actualizará.
+
+## Props
+
+Las props son atributos personalizados que usted puede registrar en un componente. Cuando se pasa un valor a un atributo prop, se convierte en una propiedad en esa instancia de componente. Para pasar un título a nuestro componente de publicación, podemos incluirlo en la lista de props que este componente acepta, usando la opción props, ejemplo:
+
+```JS
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+```
+
+Un componente puede tener tantas props como se desee, y se puede pasar cualquier valor a cualquier prop de forma predeterminada. En el template anterior, verá que podemos acceder a este valor en la instancia del componente, al igual que con data.
