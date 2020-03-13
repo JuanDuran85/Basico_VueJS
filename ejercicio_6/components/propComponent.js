@@ -20,7 +20,7 @@ Vue.component('prop-component', {
                 {
                     id:2,
                     titulo:"Wonder Woman 2",
-                    descripcion: "Diana Prince, conocida como Wonder Woman se enfrenta a Cheetah, una villana que posee fuerza y agilidad sobrehumanas.",
+                   
                     caratula: "https://www.tonica.la/__export/1559770060226/sites/debate/img/2019/06/05/d8uwzjewwaajqcm_crop1559769938875.jpg_1359985867.jpg"
                 },
                 {
