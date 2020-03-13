@@ -9,7 +9,7 @@ Vue.component('prop-component', {
                 :titulo="peli.titulo" 
                 :descrip="peli.descripcion" 
                 :caratula="peli.caratula"
-                :gustar="peli.gustar"
+                :gustar.sync="peli.gustar"
                 mensaje="peliculas del 2020"
                 />
         </div>
@@ -45,5 +45,5 @@ Vue.component('prop-component', {
     },
     components: {
         peliculaComponent
-    }
+    },
 });

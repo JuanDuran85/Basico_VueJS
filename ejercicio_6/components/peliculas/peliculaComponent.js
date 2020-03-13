@@ -4,7 +4,7 @@ let peliculaComponent = {
             <img :src="caratula" alt="Caratula de pelicula"/>
             <h2 v-text="titulo"></h2>
             <p v-text="descrip"></p>
-            <button v-text="gustar ? 'Favorito':'Agregar a Favoritos'"></button>
+            <button @click="$emit('update:gustar',!gustar)" v-text="gustar ? 'Favorito':'Agregar a Favoritos'"></button>
             <hr>
         </div>
     `,
@@ -42,5 +42,5 @@ let peliculaComponent = {
             type: String,
             required: false
         }
-    }
+    },
 }
