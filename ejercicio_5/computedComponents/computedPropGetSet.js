@@ -23,10 +23,11 @@ Vue.component('computed-propgetset', {
                 return `${this.usuario.nombre} ${this.usuario.apellido}`
             },
             set(variable){
-                console.log(variable);
                 let nombre = variable.split(' ');
-                this.nombreCompleto.nombre = nombre[0];
-                this.nombreCompleto.apellido = nombre[1];
+                console.log(nombre);
+                this.usuario.nombre = nombre[0];
+                this.usuario.apellido = nombre[1];
+                console.log(this.nombreCompleto);
             }
         },
         edadUsuario(){
