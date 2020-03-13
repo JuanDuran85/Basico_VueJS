@@ -8,8 +8,8 @@ let directivaHTML = {
     `,
     data() {
         return {
+            mensaje: `Mensaje desde <strong>Componente - Directiva HTML</strong> como hijo del <em>Componente Directivas Vue</em> titulo`,     
             titulo: "Directiva v-html",
-            mensaje: "Mensaje desde <strong>Componente - Directiva HTML</strong> como hijo del <em>Componente Directivas Vue</em>"        
         }
     },
 };

@@ -3,15 +3,19 @@ se incia con la palabra Vue posteriormente la palabra component como estructura 
 
 Nota Importante: En el template solo puede existir una estructura padre. No pueden existir mas porque la compilación generará error.
 */
-
-Vue.component('saludo-inicial',{
+Vue.component('componente-inicial',{
     template: `
-    <div>
-        <header>
-            <h1 class="clase1">{{titulo}}</h1>
-        </header>
-        <button type="button" class="btn btn-primary">Boton</button>
-    </div>
+        <main>
+            <div>
+                div etiqueta
+            </div>
+            <header>
+                <h1 class="clase1">{{titulo}}</h1>
+            </header>
+            <button type="button" class="btn btn-primary">Boton</button>
+            <article>Articulo</article>
+            <footer>Footer</footer>
+        </main>
     `,
     data(){
         return {
