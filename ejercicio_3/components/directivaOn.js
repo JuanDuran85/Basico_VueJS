@@ -1,13 +1,13 @@
 let directivaOn = {
     template: `
-        <div>
+        <div v-on:click.stop="mensaje_f">
         <hr>
             <h2 v-text="titulo"></h2>
             <p v-html="mensaje"></p>
             <button v-on:click.stop="mensaje_f">Clic Aquí</button>
             <p>-----Pelicula------</p>
             <p v-text="pelicula"></p>
-            <button @click.stop="comprar_entrada">Comprar Pelicula</button>
+            <button @click.stop="comprar_entrada">Comprar Entrada para Pelicula</button>
             <p>Entradas Disponibles: <span v-text="entradas"></span></p>
         </div>
     `,
@@ -28,8 +28,9 @@ let directivaOn = {
             if (this.entradas > 0) {
                 this.entradas--;
                 return alert(`Entrada para la pelicula ${this.pelicula} comprada`);
+            }else{
+                return alert("Ya no quedan entradas");
             }
-            return alert("Ya no quedan entradas");
         }
     },
 }

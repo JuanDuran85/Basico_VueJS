@@ -27,7 +27,7 @@ let directivaModel = {
         return {
             titulo2: "Directiva v-model",
             mensaje: "Usando Directiva v-model",
-            checked: false,
+            checked: true,
             favoritas:[],
             peliculas: ["Mulan", "Wonder Woman II", "Black Widow", "Bond 25", "Unidos", "Top Gun 2", "El Conjuto 3"]
         }

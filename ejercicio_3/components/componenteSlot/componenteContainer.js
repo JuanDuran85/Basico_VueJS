@@ -2,7 +2,7 @@ let componenteContainer= {
   template: `
     <div class="container-fluid">
         <header>
-            <slot name="header">
+            <slot>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Active</a>
@@ -20,7 +20,7 @@ let componenteContainer= {
             </slot>
         </header>
         <main>
-            <slot name="main">
+            <slot name="mainxx">
                 <p>Contenido del main</p>
             </slot>
         </main>

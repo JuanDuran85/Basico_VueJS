@@ -11,21 +11,21 @@ let directivaFor = {
             <p>Mostrando valores para un arreglo con v-for y :key</p>
             <ul>
                 <li v-for="(ciudades, index) in lista_ciudades" :key="index">
-                    {{index+1}}-{{ciudades}}
+                    {{index}}-{{ciudades}}
                 </li>
             </ul>
             <p>Mostrando valores para un objeto con v-for</p>
             <ul>
                 <li v-for="(val, key, index) in objeto_nombres">
-                {{index}}-->{{key}}:{{val}}</li>
+                {{index}}-->{{key}}: {{val}}</li>
             </ul>
             <p>Mostrando valores para un objeto con v-for y :key en una tabla</p>
             <table style="border: 1px solid black">
                 <tbody>
                     <tr>
-                        <td style="border: 1px solid black">Numero</td>
-                        <td style="border: 1px solid black">País</td>
-                        <td style="border: 1px solid black">Moneda</td>
+                        <th style="border: 1px solid black">Número</th>
+                        <th style="border: 1px solid black">País</th>
+                        <th style="border: 1px solid black">Moneda</th>
                     </tr>
                     <tr v-for="(moneda, llave, index) in objeto_moneda" :key="index">
                         <td style="border: 1px solid black">{{index+1}}</td>

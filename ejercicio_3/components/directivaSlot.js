@@ -5,15 +5,11 @@ let directivaSlot = {
             <h2 v-text="titulo"></h2>
             <p v-html="mensaje"></p>
             <componenteBoton>
-                <template v-slot:accciones>
-                </template>
-                <template #elementos>
-                </template>
+                <template v-slot:accciones>Cerrar</template>
+                <template #elementos>Ventana</template>
             </componenteBoton>
             <componenteContainer>
-                <template #header></template>
-                <template #main></template>
-                <template #footer></template>
+                <template></template>
             </componenteContainer>  
         </div>
     `,
