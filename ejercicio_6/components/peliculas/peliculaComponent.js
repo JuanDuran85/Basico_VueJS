@@ -4,6 +4,7 @@ let peliculaComponent = {
             <img :src="caratula" alt="Caratula de pelicula"/>
             <h2 v-text="titulo"></h2>
             <p v-text="descrip"></p>
+            <button v-text="gustar ? 'Favorito':'Agregar a Favoritos'"></button>
             <hr>
         </div>
     `,
@@ -29,6 +30,17 @@ let peliculaComponent = {
         caratula: {
             type: String,
             required: true
+        },
+        gustar: {
+            type: Boolean,
+            required: true,
+            default(){
+                return false
+            }
+        },
+        mensaje: {
+            type: String,
+            required: false
         }
     }
 }
