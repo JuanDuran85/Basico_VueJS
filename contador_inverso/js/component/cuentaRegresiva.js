@@ -26,6 +26,7 @@ Vue.component('cuenta-regresiva',{
                 }else {
                     this.tres = 3;
                     clearInterval(cuentaTres);
+                    this.cuenta = "00:00:00 H:min:seg";
                 }
             },1000);
         },
@@ -39,6 +40,7 @@ Vue.component('cuenta-regresiva',{
                 }else {
                     this.cinco = 5;
                     clearInterval(cuentaCinco);
+                    this.cuenta = "00:00:00 H:min:seg";
                 }
             },1000);
         },
@@ -48,10 +50,15 @@ Vue.component('cuenta-regresiva',{
                 if (this.uno > 0) {
                     console.log(this.uno);
                     this.uno--;
-                    this.cuenta = `00:00:${this.uno}seg`
+                        if (this.uno < 10) {
+                            this.cuenta = `00:00:0${this.uno}seg`
+                        }else{
+                            this.cuenta = `00:00:${this.uno}seg`
+                        }
                 }else {
                     this.uno = 60;
                     clearInterval(cuentaUno);
+                    this.cuenta = "00:00:00 H:min:seg";
                 }
             },1000);
         }
