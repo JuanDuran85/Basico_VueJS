@@ -20,7 +20,7 @@ let peliculaFavorita = {
     mounted() {
         let vm = this;
         let $element = document.getElementById(`fav-${this._uid}`);
-        $element.addEventListener('animationend', function(){
+        $element.addEventListener('animationstart', function(){
             vm.$emit("ocultarFav",false);
         });
         console.log("Mounted desde peliculaFavorita");
