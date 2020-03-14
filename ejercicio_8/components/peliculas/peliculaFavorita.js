@@ -18,8 +18,11 @@ let peliculaFavorita = {
         console.log("beforeMount desde peliculaFavorita");
     },
     mounted() {
+        let vm = this;
         let $element = document.getElementById(`fav-${this._uid}`);
-        $element.addEventListener()
+        $element.addEventListener('animationend', function(){
+            vm.$emit("ocultarFav",false);
+        });
         console.log("Mounted desde peliculaFavorita");
     },
     beforeUpdate() {

@@ -12,7 +12,7 @@ Vue.component('prop-component', {
                 :gusta="peli.gustar"
                 @gutarPeli="leGustoPeli"
             />
-            <peliculaFavorita v-show="mostrarFavorito"/>
+            <peliculaFavorita v-show="mostrarFavorito" @ocultarFav="oculto"/>
         </div>
     `,
     data() {
@@ -76,10 +76,6 @@ Vue.component('prop-component', {
                 let feed2 = document.getElementById("feed2");
                 corazon.setAttribute("class","heart heart_animate");
                 feed2.style.position = "fixed";
-                setTimeout(()=>{
-                    corazon.removeAttribute("class","heart_animate");
-                    feed2.style.position = "relative";
-                },3000);
             }else {
                 const Toast = Swal.mixin({
                     toast: true,
@@ -97,6 +93,12 @@ Vue.component('prop-component', {
                     title: `La pelicula ${pelicuGusta.titulo} fue eliminada de los favoritos`
                 });
             }
+        },
+        oculto(){
+            setTimeout(()=>{
+                corazon.removeAttribute("class","heart_animate");
+                feed2.style.position = "relative";
+            },3000);
         }
     },
     beforeCreate() {
