@@ -137,7 +137,7 @@ Las propiedades computadas se almacenan en caché y solo se vuelven a calcular e
 
 ## Props
 
-Las props son atributos personalizados que usted puede registrar en un componente. Cuando se pasa un valor a un atributo prop, se convierte en una propiedad en esa instancia de componente. Para pasar un título a nuestro componente de publicación, podemos incluirlo en la lista de props que este componente acepta, usando la opción props, ejemplo:
+Las props son atributos personalizados que usted puede registrar en un componente. Cuando se pasa un valor a un atributo prop, se convierte en una propiedad en esa instancia de componente. En otras palabras, los props sirven para pasar parámetros o información al propio web component para poder personalizarlo y ajustarlo dependiendo de las necesidades. Para pasar un título a nuestro componente de publicación, podemos incluirlo en la lista de props que este componente acepta, usando la opción props, ejemplo:
 
 ```JS
 Vue.component('blog-post', {
@@ -146,4 +146,4 @@ Vue.component('blog-post', {
 })
 ```
 
-Un componente puede tener tantas props como se desee, y se puede pasar cualquier valor a cualquier prop de forma predeterminada. En el template anterior, verá que podemos acceder a este valor en la instancia del componente, al igual que con data.
+Un componente puede tener tantas props como se desee, y se puede pasar cualquier valor a cualquier prop de forma predeterminada. En el template anterior, verá que podemos acceder a este valor en la instancia del componente, al igual que con data. Los props dentro del componente en el que se declaran no son más que variables. Como pasa con las variables, los props también son reactivos, es decir, cuando desde fuera el valor del prop cambie, automáticamente se actualizará la vista y las propiedades computadas asociadas a ese prop. Para mayor información, visita: [Vue props](https://codingpotions.com/vue-props)
