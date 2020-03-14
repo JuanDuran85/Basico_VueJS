@@ -14,13 +14,13 @@ Vue.component('cuenta-regresiva',{
     methods: {
         tresSeg(){
             this.cuenta = `00:00:03seg`;
-            console.log(this.cuenta);
-            let cuentaTres = setInterval(function(){
+            let cuentaTres = setInterval(()=>{
                 if (this.tres > 0) {
                     console.log(this.tres);
-                    descontar--;
+                    this.tres--;
                     this.cuenta = `00:00:0${this.tres}seg`
                 }else {
+                    this.tres = 3;
                     clearInterval(cuentaTres);
                 }
             },1000);
