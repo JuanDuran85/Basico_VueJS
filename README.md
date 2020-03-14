@@ -146,4 +146,21 @@ Vue.component('blog-post', {
 })
 ```
 
-Un componente puede tener tantas props como se desee, y se puede pasar cualquier valor a cualquier prop de forma predeterminada. En el template anterior, verá que podemos acceder a este valor en la instancia del componente, al igual que con data. Los props dentro del componente en el que se declaran no son más que variables. Como pasa con las variables, los props también son reactivos, es decir, cuando desde fuera el valor del prop cambie, automáticamente se actualizará la vista y las propiedades computadas asociadas a ese prop. Para mayor información, visita: [Vue props](https://codingpotions.com/vue-props)
+Un componente puede tener tantas props como se desee, y se puede pasar cualquier valor a cualquier prop de forma predeterminada. En el template anterior, verá que podemos acceder a este valor en la instancia del componente, al igual que con data. Los props dentro del componente en el que se declaran no son más que variables. Como pasa con las variables, los props también son reactivos, es decir, cuando desde fuera el valor del prop cambie, automáticamente se actualizará la vista y las propiedades computadas asociadas a ese prop. Para mayor información, visita: [Vue props](https://codingpotions.com/vue-props).
+
+## Ciclo de Vida de una instancia en VueJS
+
+Los componentes que definimos en Vue.js tienen un ciclo de vida, durante éste, podemos acceder a varias funciones (hooks) y, con ellos, ejecutar el código que queremos en ciertos puntos del ciclo de vida del componente. Por ejemplo, podremos ejecutar código antes de que el componente se añada al DOM y/o cuando ya esté añadido, también antes de que se elimine, entre otras opciones más.
+
+Los hooks por los que puede pasar la instancia de Vue.js o un componente de Vue.js son (sacado de la documentación):
+
+* beforeCreate: se ejecuta justo después de la inicialización de la instancia.
+* created:  se ejecuta cuando la instancia y los eventos, las computed properties, el data y los métodos están creados. Normalmente se utiliza para inicializar propiedades del objeto data con consultas HTTP Get.
+* beforeMount: se ejecuta justo antes de que se añada al DOM.
+* mounted: se ejecuta después de añadirlo al DOM. Se puede utilizar para inicializar librerías que dependan del DOM.
+* beforeUpdate: se ejecuta cuando el data cambia, pero el DOM aun no ha plasmado los cambios.
+* updated: se ejecuta después de que el data cambie y el DOM muestre estos cambios.
+* beforeDestroy: se ejecuta justo antes de eliminar la instancia.
+* destroyed: se ejecuta cuando la instancia, los eventos, directivas e hijos del componente se han eliminado.
+
+![Ciclo de Vida](https://es.vuejs.org/images/lifecycle.png?_sw-precache=6f2c97f045ba988851b02056c01c8d62)
