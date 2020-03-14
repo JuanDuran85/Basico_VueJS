@@ -11,7 +11,8 @@ Vue.component('prop-component', {
                 :caratula="peli.caratula"
                 :gusta="peli.gustar"
                 @gutarPeli="leGustoPeli"
-                />
+            />
+            <peliculaFavorita v-show="mostrarFavorito"/>
         </div>
     `,
     data() {
@@ -40,11 +41,13 @@ Vue.component('prop-component', {
                     caratula: "https://secureservercdn.net/198.71.233.195/r7q.b02.myftpupload.com/wp-content/uploads/2019/08/black-widow-d23-poster-top-1024x576.jpg",
                     gustar: false
                 }
-            ]
+            ],
+            mostrarFavorito: false
         }
     },
     components: {
-        peliculaComponent
+        peliculaComponent,
+        peliculaFavorita
     },
     methods: {
         leGustoPeli(datos){
@@ -52,10 +55,47 @@ Vue.component('prop-component', {
             //aqui buscará en la lista de peliculas y retorne directamente la pelicula que tenga el id igual al de la data
             let pelicuGusta = this.peliculas.find(pelicula => pelicula.id == datos.id);
             pelicuGusta.gustar=datos.gustando;
+            this.mostrarFavorito = datos.gustando;
             if (pelicuGusta.gustar){
-                alert(`La pelicula ${pelicuGusta.titulo} fue agregada a favoritos`);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+                Toast.fire({
+                    icon: 'success',
+                    title: `La pelicula ${pelicuGusta.titulo} fue agregada a favoritos`
+                });
+                let corazon = document.getElementById("corazon");
+                let feed2 = document.getElementById("feed2");
+                corazon.setAttribute("class","heart heart_animate");
+                feed2.style.position = "fixed";
+                setTimeout(()=>{
+                    corazon.removeAttribute("class","heart_animate");
+                    feed2.style.position = "relative";
+                },3000);
             }else {
-                alert(`La pelicula ${pelicuGusta.titulo} fue eliminada de los favoritos`);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
+                    icon: 'error',
+                    title: `La pelicula ${pelicuGusta.titulo} fue eliminada de los favoritos`
+                });
             }
         }
     },
