@@ -165,4 +165,21 @@ Los hooks por los que puede pasar la instancia de Vue.js o un componente de Vue.
 * beforeDestroy: se ejecuta justo antes de eliminar la instancia.
 * destroyed: se ejecuta cuando la instancia, los eventos, directivas e hijos del componente se han eliminado.
 
-![Ciclo de Vida](https://es.vuejs.org/images/lifecycle.png?_sw-precache=6f2c97f045ba988851b02056c01c8d62)
+![Ciclo de Vida](https://es.vuejs.org/images/lifecycle.png?_sw-precache=6f2c97f045ba988851b02056c01c8d62).
+
+## Filtros en VueJS
+
+Vue.js permite definir filtros que pueden usarse para aplicar formato de texto común. Se pueden utilizar filtros en dos lugares: interpolaciones mustache y expresiones v-bind (siendo esta última, soportada en 2.1.0+). Los filtros se deben agregar al final de la expresión de JavaScript, denotados por símbolo “pipe” --> "|". La función del filtro siempre recibe el valor de la expresión como su primer argumento.
+
+```HTML
+<!-- en mustaches -->
+{{ message | capitalize }}
+
+<!-- en v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+```
+
+
+
+
+
