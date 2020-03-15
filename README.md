@@ -183,7 +183,6 @@ Vue.js permite definir filtros que pueden usarse para aplicar formato de texto c
 
 Si bien las propiedades computadas son más apropiadas en la mayoría de los casos, hay ocasiones en que es necesario un observador personalizado. Es por ello que Vue proporciona una forma más genérica de reaccionar a los cambios de datos a través de la opción "watch". Esto es más útil cuando desea realizar operaciones asíncronas o costosas en respuesta al cambio de datos. Por lo tanto, son metodos que nos permite estar pendiente de los cambios de la data de nuestros componentes, ya sean los props o la data directamente.
 
+Ahora bien, cuando la data corresponde a un objeto donde las claves son expresiones para observar y los valores son los callbacks correspondientes... el valor también puede ser una cadena de texto con el nombre de un método o un Objeto que contenga opciones adicionales. En este caso, la instancia de Vue llamará al watch para cada entrada en el objeto en la instanciación.
 
-
-
-
+Importante: Cuando se trabaja con el Watch en objetos, al realizar cambios a los valores de las llaves los watchers no se activan directamente, por lo tanto, se deben utilizar manipuladores (handler) y opciones especificas (deep, immediate)
