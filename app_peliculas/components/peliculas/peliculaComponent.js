@@ -1,11 +1,13 @@
 //hijo de propComponent
 let peliculaComponent = {
     template: `
-        <div class="card" :class="{pelicula_gustar:gusta}">
+        <div class="card" :class="{pelicula_gustar:gusta}" :id="id | formadId">
             <img :src="caratula" alt="Caratula de pelicula" class="card-img-top">
             <div class="card-body" :class="{clase_2:true,'clase-2':false}">
-                <h5 class="card-title" v-text="titulo" :class="[nombreClase_1,nombreClase_2]"></h5>
-                <p class="card-text" v-text="descrip" :class="clases"></p>
+                <h5 class="card-title" :class="[nombreClase_1,nombreClase_2]">
+                    {{titulo | mayusTitulo | centrado}}
+                </h5>
+                <p class="card-text" :class="clases">{{descrip | recorte}}</p>
                 <button @click="gustaPeli" class="btn" :class="cambioClases">{{gusta ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
             </div>
         </div>
@@ -80,5 +82,20 @@ let peliculaComponent = {
             };
             this.$emit("gutarPeli", datos);
         },
+    },
+    filters: {
+        formadId(id){
+            return `cardPeli-${id}`;
+        },
+        mayusTitulo(titulo){
+            return titulo.toUpperCase();
+        },
+        centrado(titulo){
+            let texto = "Pelicula: ";
+            return texto.concat(""+titulo);
+        },
+        recorte(descrip){            
+            return descrip.substr(0,99).concat("...");
+        }
     },
 }
