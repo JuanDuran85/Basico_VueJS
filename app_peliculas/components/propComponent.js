@@ -3,7 +3,7 @@ Vue.component('prop-component', {
     template: `
         <div class="container">
             <h1 v-text="titulo"></h1>
-            <h5>Bienvenido {{usuario}}</h5>
+            <h5>Bienvenido {{usuario.nombre}} {{usuario.apellido}}</h5>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
@@ -17,8 +17,9 @@ Vue.component('prop-component', {
                 </div>
             </div>
             
-            <label> Cambiar Nombre:
-                <input :value="usuario" @change="setNuevoUsurio"/>
+            <label> Cambiar Nombre y Apellido:
+                <input :value="usuario.nombre" @change="setNombre"/>
+                <input :value="usuario.apellido" @change="setApellido"/>
             </label>
             {{viejoUsuario}}
 
@@ -28,7 +29,10 @@ Vue.component('prop-component', {
     `,
     data() {
         return {
-            usuario: "Juan Duran",
+            usuario: {
+                nombre: "Juan",
+                apellido: "Duran",
+            },
             viejoUsuario: null,
             titulo: "Utilizando Props - AppWeb Pelicuas",
             mensaje: "compartiendo datos a componentes hijos",
@@ -59,10 +63,25 @@ Vue.component('prop-component', {
         }
     },
     watch: {
-        usuario(nuevo,viejo){
+/*         usuario(nuevo,viejo){
             console.log(nuevo,viejo);
             this.viejoUsuario = viejo;
-        }
+        }, */
+        // se debe acceder por individual a cada valor del objeto
+        'usuario.nombre': {
+            handler: function (nuevoVal, viejoVal) {
+                console.log("nuevo nombre: "+nuevoVal);
+                console.log("viejo nombre: "+viejoVal);
+            },
+            deep: true
+        },
+        'usuario.apellido': {
+            handler: function (nuevoVal, viejoVal) {
+                console.log("nuevo apellido: "+nuevoVal);
+                console.log("viejo apellido: "+viejoVal);
+            },
+            deep: true
+        },
     },
     components: {
         peliculaComponent,
@@ -120,8 +139,11 @@ Vue.component('prop-component', {
         mostrandoCon(){
             console.log("--->Mostrando el mensaje desde el metodo del hijo por eventos")
         },
-        setNuevoUsurio(evento){
-            this.usuario = evento.target.value;
+        setNombre(evento){
+            this.usuario.nombre = evento.target.value;
+        },
+        setApellido(evento){
+            this.usuario.apellido = evento.target.value;
         }
     },
     beforeCreate() {
