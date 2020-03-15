@@ -10,9 +10,9 @@ Vue.component('peliculas-app', {
                 <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
                         :id="peli.id" 
-                        :titulo="peli.titulo" 
-                        :descrip="peli.descripcion" 
-                        :caratula="peli.caratula"
+                        :title="peli.title" 
+                        :overview="peli.overview" 
+                        :poster_path="peli.poster_path"
                         :gusta="peli.gustar"
                         @gutarPeli="leGustoPeli"
                     />
@@ -34,23 +34,22 @@ Vue.component('peliculas-app', {
             peliculas: [
                 {
                     id:1,
-                    titulo:"Mulán",
-                    descripcion: "El emperador chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
-                    caratula: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
+                    title:"Mulán",
+                    overview: "El emperador chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
+                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
                     gustar: false
                 },
                 {
                     id:2,
-                    titulo:"Wonder Woman 2",
-                   
-                    caratula: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/gfJGlDaHuWimErCr5Ql0I8x9QSy.jpg",
+                    title:"Wonder Woman 2",
+                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/gfJGlDaHuWimErCr5Ql0I8x9QSy.jpg",
                     gustar: false
                 },
                 {
                     id:3,
-                    titulo:"Black Widow",
-                    descripcion: "Al nacer, la Viuda Negra, también conocida como Natasha Romanova, se entrega a la KGB para convertirse en su agente definitivo. Cuando la URSS se separa, el gobierno intenta matarla mientras la acción se traslada a la actual Nueva York.",
-                    caratula: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/uAUCHOYwFKQvSRZByP8rCgWKwT.jpg",
+                    title:"Black Widow",
+                    overview: "Al nacer, la Viuda Negra, también conocida como Natasha Romanova, se entrega a la KGB para convertirse en su agente definitivo. Cuando la URSS se separa, el gobierno intenta matarla mientras la acción se traslada a la actual Nueva York.",
+                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/uAUCHOYwFKQvSRZByP8rCgWKwT.jpg",
                     gustar: false
                 }
             ],
@@ -119,7 +118,10 @@ Vue.component('peliculas-app', {
             const URL = `${URL_BASICA}discover/movie?sort_by=popularity.desc&api_key=${APIKEY}`;
             fetch(URL)
                 .then(respuesta => respuesta.json())
-                .then(json => console.log(json))
+                .then(json => {
+                    console.log(json.results);
+                    this.peliculas = json.results;
+                })
                 .catch(error => console.log(error));
         }
     },

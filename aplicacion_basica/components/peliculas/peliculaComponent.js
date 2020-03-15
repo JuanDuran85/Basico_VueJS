@@ -2,12 +2,12 @@
 let peliculaComponent = {
     template: `
         <div class="card" :class="{pelicula_gustar:gusta}" :id="id | formadId">
-            <img :src="caratula" alt="Caratula de pelicula" class="card-img-top">
+            <img :src="'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+poster_path" alt="Caratula de pelicula" class="card-img-top">
             <div class="card-body" :class="{clase_2:true,'clase-2':false}">
                 <h5 class="card-title" :class="[nombreClase_1,nombreClase_2]">
-                    {{titulo | mayusTitulo | centrado}}
+                    {{title | mayusTitle | centrado}}
                 </h5>
-                <p class="card-text" :class="clases">{{descrip | recorte}}</p>
+                <p class="card-text" :class="clases">{{overview | recorte}}</p>
                 <button @click="gustaPeli" class="btn" :class="cambioClases">{{gusta ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
             </div>
         </div>
@@ -22,26 +22,20 @@ let peliculaComponent = {
             },
         }
     },
-    /* props: [
-        'id',
-        'titulo',
-        'descrip',
-        'caratula'
-    ] */
     props: {
         id: {
             type: Number,
             required: true
         },
-        titulo: {
+        title: {
             type: String,
             required: true
         },
-        descrip: {
+        overview: {
             type: String,
             default: "La pelicula no posee descripción"
         },
-        caratula: {
+        poster_path: {
             type: String,
             required: true
         },
@@ -87,15 +81,15 @@ let peliculaComponent = {
         formadId(id){
             return `cardPeli-${id}`;
         },
-        mayusTitulo(titulo){
-            return titulo.toUpperCase();
+        mayusTitle(title){
+            return title.toUpperCase();
         },
-        centrado(titulo){
+        centrado(title){
             let texto = "Pelicula: ";
-            return texto.concat(""+titulo);
+            return texto.concat(""+title);
         },
-        recorte(descrip){            
-            return descrip.substr(0,99).concat("...");
+        recorte(overview){            
+            return overview.substr(0,99).concat("...");
         }
     },
     watch: {
