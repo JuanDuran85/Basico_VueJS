@@ -1,9 +1,11 @@
-// componente padre de peliculaFavorita y peliculaComponent
+const APIKEY = "fb3ca15f2fd38a0b602cd1f26c17524c";
+const URL_BASICA = "https://api.themoviedb.org/3/";
+
 Vue.component('peliculas-app', {
     template: `
         <div class="container">
             <h1 v-text="titulo"></h1>
-            <h5>Bienvenido {{usuario.nombre}} {{usuario.apellido}}</h5>
+            <h5>Bienvenido {{nombreCompleto}}</h5>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
@@ -59,6 +61,11 @@ Vue.component('peliculas-app', {
         peliculaComponent,
         peliculaFavorita
     },
+    computed: {
+        nombreCompleto(){
+            return `${this.usuario.nombre} ${this.usuario.apellido}`
+        }
+    },
     methods: {
         leGustoPeli(datos){
             console.log(datos);
@@ -106,7 +113,14 @@ Vue.component('peliculas-app', {
                     icon: 'error',
                     title: `La pelicula ${pelicuGusta.titulo} fue eliminada de los favoritos`
                 });
-            }
+            };
+        },
+        conexion(){
+            const URL = `${URL_BASICA}discover/movie?sort_by=popularity.desc&api_key=${APIKEY}`;
+            fetch(URL)
+                .then(respuesta => respuesta.json())
+                .then(json => console.log(json))
+                .catch(error => console.log(error));
         }
     },
     mounted() {
@@ -119,5 +133,6 @@ Vue.component('peliculas-app', {
         this.$refs.idPeliFav.mensaje = " ----> Mensaje modificado desde el padre <---";
         // llamamos el mensaje en los metodos del hijo
         this.$refs.idPeliFav.mostrarMensaje();
+        this.conexion();
     },
 });
