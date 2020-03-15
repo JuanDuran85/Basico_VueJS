@@ -152,6 +152,8 @@ Un componente puede tener tantas props como se desee, y se puede pasar cualquier
 
 Los componentes que definimos en Vue.js tienen un ciclo de vida, durante éste, podemos acceder a varias funciones (hooks) y, con ellos, ejecutar el código que queremos en ciertos puntos del ciclo de vida del componente. Por ejemplo, podremos ejecutar código antes de que el componente se añada al DOM y/o cuando ya esté añadido, también antes de que se elimine, entre otras opciones más.
 
+Todos los hooks de ciclo de vida tienen automáticamente su contexto this vinculado a la instancia, de modo que usted puede acceder a datos, propiedades computadas y métodos. Esto significa que no debe usar una arrow function para definir un método de ciclo de vida (por ejemplo, ```created: () => this.fetchTodos ())```. La razón es que las arrow functions vinculan el contexto principal, por lo que this no será la instancia de Vue como espera y this.fetchTodos no estará definido.
+
 Los hooks por los que puede pasar la instancia de Vue.js o un componente de Vue.js son (sacado de la documentación):
 
 * beforeCreate: se ejecuta justo después de la inicialización de la instancia.
