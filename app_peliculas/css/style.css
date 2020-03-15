@@ -57,3 +57,19 @@
 	display: flex;
 	justify-content: center;
 }
+
+.btn-Fav {
+	border-color: #eb4d4b;
+	color: #eb4d4b;
+}
+
+.btn-noFav {
+	border-color: #5b4beb;
+	color: #6e4beb;
+}
+
+.pelicula_gustar {
+	-webkit-box-shadow: inset -1px 3px 29px 15px rgba(181,72,181,0.44);
+	-moz-box-shadow: inset -1px 3px 29px 15px rgba(181,72,181,0.44);
+	box-shadow: inset -1px 3px 29px 15px rgba(181,72,181,0.44);
+}

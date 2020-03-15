@@ -1,14 +1,25 @@
 //hijo de propComponent
 let peliculaComponent = {
     template: `
-        <div>
-            <img :src="caratula" alt="Caratula de pelicula" class="img-fluid"/>
-            <h2 v-text="titulo"></h2>
-            <p v-text="descrip"></p>
-            <button @click="gustaPeli" v-text="gusta ? 'Favorito':'Agregar a Favoritos'"></button>
-            <hr>
+        <div class="card" :class="{pelicula_gustar:gusta}">
+            <img :src="caratula" alt="Caratula de pelicula" class="card-img-top">
+            <div class="card-body" :class="{clase_2:true,'clase-2':false}">
+                <h5 class="card-title" v-text="titulo" :class="[nombreClase_1,nombreClase_2]"></h5>
+                <p class="card-text" v-text="descrip" :class="clases"></p>
+                <button @click="gustaPeli" class="btn" :class="cambioClases">{{gusta ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
+            </div>
         </div>
     `,
+    data() {
+        return {
+            nombreClase_1: "clase_x",
+            nombreClase_2: "clase_y",
+            clases: {
+                'clase-z': true,
+                clase_w: false,
+            },
+        }
+    },
     /* props: [
         'id',
         'titulo',
@@ -39,6 +50,14 @@ let peliculaComponent = {
                 return false
             }
         },
+    },
+    computed: {
+        cambioClases(){
+            return this.gusta ? 'btn-Fav':'btn-noFav'
+        },
+        corazonGusta(){
+            return this.gusta ? 'fas fa-heart':'fas fa-heart-broken'
+        }
     },
     methods: {
         // *Vue indica que no es recomendable modificar la data de los padres directamente desde los hijos 

@@ -1,10 +1,10 @@
 // componente padre de peliculaFavorita y peliculaComponent
 Vue.component('prop-component', {
     template: `
-        <div class="container-fluid">
+        <div class="container">
             <h1 v-text="titulo"></h1>
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="(peli,index) in peliculas">
+                <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
                         :id="peli.id" 
                         :titulo="peli.titulo" 
@@ -29,21 +29,21 @@ Vue.component('prop-component', {
                     id:1,
                     titulo:"Mulán",
                     descripcion: "El emperador chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
-                    caratula: "https://lumiere-a.akamaihd.net/v1/images/mulan_payoff_poster_las_1_2459ff1d.jpeg",
+                    caratula: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
                     gustar: false
                 },
                 {
                     id:2,
                     titulo:"Wonder Woman 2",
                    
-                    caratula: "https://www.tonica.la/__export/1559770060226/sites/debate/img/2019/06/05/d8uwzjewwaajqcm_crop1559769938875.jpg_1359985867.jpg",
+                    caratula: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gfJGlDaHuWimErCr5Ql0I8x9QSy.jpg",
                     gustar: false
                 },
                 {
                     id:3,
                     titulo:"Black Widow",
                     descripcion: "Al nacer, la Viuda Negra, también conocida como Natasha Romanova, se entrega a la KGB para convertirse en su agente definitivo. Cuando la URSS se separa, el gobierno intenta matarla mientras la acción se traslada a la actual Nueva York.",
-                    caratula: "https://secureservercdn.net/198.71.233.195/r7q.b02.myftpupload.com/wp-content/uploads/2019/08/black-widow-d23-poster-top-1024x576.jpg",
+                    caratula: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/uAUCHOYwFKQvSRZByP8rCgWKwT.jpg",
                     gustar: false
                 }
             ],
