@@ -13,8 +13,8 @@ Vue.component('peliculas-app', {
                         :title="peli.title" 
                         :overview="peli.overview" 
                         :poster_path="peli.poster_path"
-                        :gusta="peli.gustar"
-                        @gutarPeli="leGustoPeli"
+                        :gustar="peli.gustar"
+                        @gustarPeli="leGustoPeli"
                     />
                 </div>
             </div>
@@ -31,28 +31,7 @@ Vue.component('peliculas-app', {
             viejoUsuario: null,
             titulo: "Películas WebApp",
             mensaje: "compartiendo datos a componentes hijos",
-            peliculas: [
-                {
-                    id:1,
-                    title:"Mulán",
-                    overview: "El emperador chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
-                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
-                    gustar: false
-                },
-                {
-                    id:2,
-                    title:"Wonder Woman 2",
-                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/gfJGlDaHuWimErCr5Ql0I8x9QSy.jpg",
-                    gustar: false
-                },
-                {
-                    id:3,
-                    title:"Black Widow",
-                    overview: "Al nacer, la Viuda Negra, también conocida como Natasha Romanova, se entrega a la KGB para convertirse en su agente definitivo. Cuando la URSS se separa, el gobierno intenta matarla mientras la acción se traslada a la actual Nueva York.",
-                    poster_path: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/uAUCHOYwFKQvSRZByP8rCgWKwT.jpg",
-                    gustar: false
-                }
-            ],
+            peliculas: [],
             mostrarFavorito: false
         }
     },
@@ -121,20 +100,13 @@ Vue.component('peliculas-app', {
                 .then(json => {
                     console.log(json.results);
                     this.peliculas = json.results;
+                    this.peliculas.gustar = false;
+                    console.log(this.peliculas);
                 })
                 .catch(error => console.log(error));
         }
     },
     mounted() {
-        console.log("------ Mounted desde propComponent / montado -------");
-        // con esto accedemos a la data del hijo
-        console.log(`lamando data del hijo desde el padre --> ${this.$refs.idPeliFav.mensaje}`);
-        // llamamos el mensaje en los metodos del hijo
-        this.$refs.idPeliFav.mostrarMensaje();
-        // modificando la data del hijo desde el padre
-        this.$refs.idPeliFav.mensaje = " ----> Mensaje modificado desde el padre <---";
-        // llamamos el mensaje en los metodos del hijo
-        this.$refs.idPeliFav.mostrarMensaje();
         this.conexion();
     },
 });
