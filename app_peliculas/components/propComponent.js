@@ -3,6 +3,7 @@ Vue.component('prop-component', {
     template: `
         <div class="container">
             <h1 v-text="titulo"></h1>
+            <h5>Bienvenido {{usuario}}</h5>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
@@ -16,12 +17,19 @@ Vue.component('prop-component', {
                 </div>
             </div>
             
+            <label> Cambiar Nombre:
+                <input :value="usuario" @change="setNuevoUsurio"/>
+            </label>
+            {{viejoUsuario}}
+
             <!-- las referencias se agregan a los componentes hijos dentro del padre, las cuales, pueden ser usas como un id -->
             <peliculaFavorita ref="idPeliFav" :mostrar.sync="mostrarFavorito"/>
         </div>
     `,
     data() {
         return {
+            usuario: "Juan Duran",
+            viejoUsuario: null,
             titulo: "Utilizando Props - AppWeb Pelicuas",
             mensaje: "compartiendo datos a componentes hijos",
             peliculas: [
@@ -48,6 +56,12 @@ Vue.component('prop-component', {
                 }
             ],
             mostrarFavorito: false
+        }
+    },
+    watch: {
+        usuario(nuevo,viejo){
+            console.log(nuevo,viejo);
+            this.viejoUsuario = viejo;
         }
     },
     components: {
@@ -105,6 +119,9 @@ Vue.component('prop-component', {
         },
         mostrandoCon(){
             console.log("--->Mostrando el mensaje desde el metodo del hijo por eventos")
+        },
+        setNuevoUsurio(evento){
+            this.usuario = evento.target.value;
         }
     },
     beforeCreate() {
