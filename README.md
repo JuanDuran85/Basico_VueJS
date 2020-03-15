@@ -179,6 +179,10 @@ Vue.js permite definir filtros que pueden usarse para aplicar formato de texto c
 <div v-bind:id="rawId | formatId"></div>
 ```
 
+## Watchers
+
+Si bien las propiedades computadas son más apropiadas en la mayoría de los casos, hay ocasiones en que es necesario un observador personalizado. Es por ello que Vue proporciona una forma más genérica de reaccionar a los cambios de datos a través de la opción "watch". Esto es más útil cuando desea realizar operaciones asíncronas o costosas en respuesta al cambio de datos. Por lo tanto, son metodos que nos permite estar pendiente de los cambios de la data de nuestros componentes, ya sean los props o la data directamente.
+
 
 
 
