@@ -1,3 +1,4 @@
+//hijo de propComponent
 let peliculaComponent = {
     template: `
         <div>
@@ -54,9 +55,11 @@ let peliculaComponent = {
                 console.log(this.$parent.peliculas); //$parent es el componente padre / mostrando las peliculas en la data del componente padre
                 console.log(this.$parent.mostrarFavorito); //$parent es el componente padre / mostrando la variable mostrarFavorito del componente padre en la data
                 this.$parent.mostrarFavorito = true;
+                // ejecutando con evento el metodo en el padre
+                this.$parent.mostrandoCon();
 
             };
             this.$emit("gutarPeli", datos);
-        }
+        },
     },
 }

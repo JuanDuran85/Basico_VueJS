@@ -1,10 +1,11 @@
+// componente padre de peliculaFavorita y peliculaComponent
 Vue.component('prop-component', {
     template: `
         <div>
             <h1 v-text="titulo"></h1>
             <!-- Al agregar el :key podemos eliminar la advertencia que aparece en la consola -->
             <!-- el binding se hace porque se pasa data del componente padra al hijo, distinto al pasar valores directos o textos -->
-            <peliculaComponent v-for="(peli,index) in peliculas"
+            <peliculaComponent :ref="'peli-'+peli.id" v-for="(peli,index) in peliculas"
                 :id="peli.id" 
                 :titulo="peli.titulo" 
                 :descrip="peli.descripcion" 
@@ -12,7 +13,8 @@ Vue.component('prop-component', {
                 :gusta="peli.gustar"
                 @gutarPeli="leGustoPeli"
             />
-            <peliculaFavorita :mostrar.sync="mostrarFavorito"/>
+            <!-- las referencias se agregan a los componentes hijos dentro del padre, las cuales, pueden ser usas como un id -->
+            <peliculaFavorita ref="idPeliFav" :mostrar.sync="mostrarFavorito"/>
         </div>
     `,
     data() {
@@ -98,6 +100,9 @@ Vue.component('prop-component', {
                 });
             }
         },
+        mostrandoCon(){
+            console.log("--->Mostrando el mensaje desde el metodo del hijo por eventos")
+        }
     },
     beforeCreate() {
         console.log("beforeCreate desde propComponent / antes de crear");
@@ -109,7 +114,15 @@ Vue.component('prop-component', {
         console.log("beforeMount desde propComponent / antes de montarse");
     },
     mounted() {
-        console.log("Mounted desde propComponent / montado");
+        console.log("------ Mounted desde propComponent / montado -------");
+        // con esto accedemos a la data del hijo
+        console.log(`lamando data del hijo desde el padre --> ${this.$refs.idPeliFav.mensaje}`);
+        // llamamos el mensaje en los metodos del hijo
+        this.$refs.idPeliFav.mostrarMensaje();
+        // modificando la data del hijo desde el padre
+        this.$refs.idPeliFav.mensaje = " ----> Mensaje modificado desde el padre <---";
+        // llamamos el mensaje en los metodos del hijo
+        this.$refs.idPeliFav.mostrarMensaje();
     },
     beforeUpdate() {
         console.log("beforeUpdate desde propComponent / antes de actualizar");

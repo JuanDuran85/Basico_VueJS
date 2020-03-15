@@ -1,3 +1,4 @@
+//hijo de propComponent
 let peliculaFavorita = {
     template: `
         <div v-show="mostrar" class="feeds">
@@ -8,12 +9,22 @@ let peliculaFavorita = {
             </div>
         </div>
     `,
+    data() {
+        return {
+            mensaje: "información desde el hijo peliculaFavorita - data de ejemplo"
+        }
+    },
     props: {
         mostrar: {
             type: Boolean,
             default(){
                 return false
             }
+        }
+    },
+    methods: {
+        mostrarMensaje(){
+            console.log(`Mensaje llamado desde el padre --> ${this.mensaje}`);
         }
     },
     beforeCreate() {
