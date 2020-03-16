@@ -8,12 +8,12 @@ Vue.component('peliculas-app', {
             <h5>Bienvenido {{nombreCompleto}}</h5>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 py-3" v-for="(peli,index) in peliculas">
-                    <peliculaComponent :ref="'peli-'+peli.id"
+                    <peliculaComponent
                         :id="peli.id" 
                         :title="peli.title" 
                         :overview="peli.overview" 
                         :poster_path="peli.poster_path"
-                        :gustar="peli.gustar"
+                        :gusta="peli.gustar"
                         @gustarPeli="leGustoPeli"
                     />
                 </div>
@@ -22,18 +22,18 @@ Vue.component('peliculas-app', {
                 <nav aria-label="...">
                     <ul class="pagination text-center">
                         <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1" v-show="page != 1" @click.prevent="previous(page)">Previous</a>
+                            <a class="page-link" :href="retro" tabindex="-1" v-show="page != 1" @click.prevent="previous(page)">Previous</a>
                         </li>
                         <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag*20/peliculas.length < 10">
                             <a class="page-link" :href="URL_Semi+'?page='+pag">{{pag}} <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#" @click.prevent="next(page)">Next</a>
+                            <a class="page-link" :href="plus" @click.prevent="next(page)" style="cursor:pointer">Next</a>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <peliculaFavorita ref="idPeliFav" :mostrar.sync="mostrarFavorito"/>
+            <peliculaFavorita :mostrar.sync="mostrarFavorito"/>
         </div>
     `,
     data() {
@@ -49,7 +49,9 @@ Vue.component('peliculas-app', {
             mostrarFavorito: false,
             page: 1,
             total_pages: null,
-            URL_Semi: null
+            URL_Semi: null,
+            retro: null,
+            plus: null
         }
     },
     components: {
@@ -115,20 +117,21 @@ Vue.component('peliculas-app', {
                 .then(json => {
                     this.page = json.page;
                     this.total_pages = json.total_pages;
-                    this.peliculas = json.results;
-                    this.peliculas.gustar = false;
-                    console.log(this.peliculas);
+                    this.peliculas = json.results.map(peliXYZ => {
+                        peliXYZ.gustar = false;
+                        return peliXYZ
+                    });
                 })
                 .catch(error => console.log(error));
         },
         next(page){
-            console.log(page);
             this.page = page+1;
+            this.retro = `${this.URL_Semi}?page=${this.page}`;
             this.conexion();
         },
         previous(page){
-            console.log(page);
             this.page = page-1;
+            this.retro = `${this.URL_Semi}?page=${this.page}`;
             this.conexion();
         }
     },

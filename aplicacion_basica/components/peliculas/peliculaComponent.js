@@ -1,14 +1,14 @@
 //hijo de propComponent
 let peliculaComponent = {
     template: `
-        <div class="card" :class="{pelicula_gustar:gustar}" :id="id | formadId">
+        <div class="card" :class="{pelicula_gustar:gusta}" :id="id | formadId">
             <img :src="'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+poster_path" alt="Caratula de pelicula" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">
                     {{title | mayusTitle | centrado}}
                 </h5>
                 <p class="card-text">{{overview | recorte}}</p>
-                <button @click="gustaPeli" class="btn" :class="cambioClases">{{gustar ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
+                <button @click="gustaPeli" class="btn" :class="cambioClases">{{gusta ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
             </div>
         </div>
     `,
@@ -29,7 +29,7 @@ let peliculaComponent = {
             type: String,
             required: true
         },
-        gustar: {
+        gusta: {
             type: Boolean,
             required: true,
             default(){
@@ -39,21 +39,19 @@ let peliculaComponent = {
     },
     computed: {
         cambioClases(){
-            return this.gustar ? 'btn-Fav':'btn-noFav'
+            return this.gusta ? 'btn-Fav':'btn-noFav'
         },
         corazonGusta(){
-            return this.gustar ? 'fas fa-heart':'fas fa-heart-broken'
+            return this.gusta ? 'fas fa-heart':'fas fa-heart-broken'
         }
     },
     methods: {
         gustaPeli(){
             let datos = {
                 id: this.id,
-                gustando: !this.gustar
+                gustando: !this.gusta
             }
-            if (!this.gustar) {
-                console.log(this.$parent.peliculas);
-                console.log(this.$parent.mostrarFavorito);
+            if (!this.gusta) {
                 this.$parent.mostrarFavorito = true;
             };
             this.$emit("gustarPeli", datos);
