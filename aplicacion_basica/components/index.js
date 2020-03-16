@@ -7,7 +7,7 @@ Vue.component('peliculas-app', {
             <h1 v-text="titulo"></h1>
             <h5>Bienvenido {{nombreCompleto}}</h5>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 py-2" v-for="(peli,index) in peliculas">
+                <div class="col-12 col-md-6 col-lg-4 py-3" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
                         :id="peli.id" 
                         :title="peli.title" 
@@ -18,7 +18,21 @@ Vue.component('peliculas-app', {
                     />
                 </div>
             </div>
-
+            <div class="row">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page">
+                            <a class="page-link" href="#">{{pag}} <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <peliculaFavorita ref="idPeliFav" :mostrar.sync="mostrarFavorito"/>
         </div>
     `,
@@ -32,7 +46,9 @@ Vue.component('peliculas-app', {
             titulo: "Películas WebApp",
             mensaje: "compartiendo datos a componentes hijos",
             peliculas: [],
-            mostrarFavorito: false
+            mostrarFavorito: false,
+            page: 1,
+            total_pages: null
         }
     },
     components: {
@@ -92,17 +108,22 @@ Vue.component('peliculas-app', {
             };
         },
         conexion(){
-            const URL = `${URL_BASICA}discover/movie?sort_by=popularity.desc&api_key=${APIKEY}`;
+            const URL = `${URL_BASICA}discover/movie?sort_by=popularity.desc&api_key=${APIKEY}&page=${this.page}`;
             fetch(URL)
                 .then(respuesta => respuesta.json())
                 .then(json => {
+                    this.page = json.page;
+                    this.total_pages = json.total_pages;
                     this.peliculas = json.results;
                     this.peliculas.gustar = false;
+                    console.log(this.peliculas);
                 })
                 .catch(error => console.log(error));
         }
     },
     mounted() {
+        let URL_local = new URL(window.location.href);
+        this.page = URL_local.searchParams.get('page');
         this.conexion();
     },
 });
