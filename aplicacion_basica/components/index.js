@@ -20,11 +20,11 @@ Vue.component('peliculas-app', {
             </div>
             <div class="row">
                 <nav aria-label="...">
-                    <ul class="pagination">
+                    <ul class="pagination text-center">
                         <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            <a class="page-link" :href="'http://127.0.0.1:8080/aplicacion_basica/?page='+page" tabindex="-1" v-show="page != 1" @click.prevent="page -= 1">Previous</a>
                         </li>
-                        <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page">
+                        <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag*20/peliculas.length < 10">
                             <a class="page-link" href="#">{{pag}} <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="page-item">
