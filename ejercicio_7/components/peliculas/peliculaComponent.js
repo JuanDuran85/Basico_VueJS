@@ -48,7 +48,7 @@ let peliculaComponent = {
                 gustando: !this.gusta
             }
             //en la data del emit solo se puede pasar un valor
-            this.$emit("gutarPeli", datos)
+            this.$emit("gutarPeli", datos);
         }
     },
 }

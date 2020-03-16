@@ -4,7 +4,8 @@ Vue.component('prop-component', {
             <h1 v-text="titulo"></h1>
             <!-- Al agregar el :key podemos eliminar la advertencia que aparece en la consola -->
             <!-- el binding se hace porque se pasa data del componente padra al hijo, distinto al pasar valores directos o textos -->
-            <peliculaComponent v-for="(peli,index) in peliculas"
+            <peliculaComponent v-for="(peli,index) in peliculas" 
+                :key="index"
                 :id="peli.id" 
                 :titulo="peli.titulo" 
                 :descrip="peli.descripcion" 
@@ -29,7 +30,7 @@ Vue.component('prop-component', {
                 {
                     id:2,
                     titulo:"Wonder Woman 2",
-                   
+                    
                     caratula: "https://www.tonica.la/__export/1559770060226/sites/debate/img/2019/06/05/d8uwzjewwaajqcm_crop1559769938875.jpg_1359985867.jpg",
                     gustar: false
                 },

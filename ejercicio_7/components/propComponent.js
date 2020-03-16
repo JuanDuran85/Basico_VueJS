@@ -99,28 +99,8 @@ Vue.component('prop-component', {
             }
         }
     },
-    beforeCreate() {
-        console.log("beforeCreate desde propComponent / antes de crear");
-    },
-    created() {
-        console.log("Create desde propComponent / ya creado");
-    },
-    beforeMount() {
-        console.log("beforeMount desde propComponent / antes de montarse");
-    },
     mounted() {
+        alert("alerta")
         console.log("Mounted desde propComponent / montado");
-    },
-    beforeUpdate() {
-        console.log("beforeUpdate desde propComponent / antes de actualizar");
-    },
-    updated() {
-        console.log("Updated desde propComponent / actualizado");
-    },
-    beforeDestroy() {
-        console.log("beforeDestroy desde propComponent / antes de destruir");
-    },
-    destroyed() {
-        console.log("Destroyed desde propComponent / destruido");
     },
 });

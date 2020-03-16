@@ -21,14 +21,14 @@ Vue.component('peliculas-app', {
             <div class="row">
                 <nav aria-label="...">
                     <ul class="pagination text-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" :href="'http://127.0.0.1:8080/aplicacion_basica/?page='+page" tabindex="-1" v-show="page != 1" @click.prevent="page -= 1">Previous</a>
+                        <li class="page-item">
+                            <a class="page-link" href="#" tabindex="-1" v-show="page != 1" @click.prevent="previous(page)">Previous</a>
                         </li>
                         <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag*20/peliculas.length < 10">
-                            <a class="page-link" href="#">{{pag}} <span class="sr-only">(current)</span></a>
+                            <a class="page-link" :href="URL_Semi+'?page='+pag">{{pag}} <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" href="#" @click.prevent="next(page)">Next</a>
                         </li>
                     </ul>
                 </nav>
@@ -48,7 +48,8 @@ Vue.component('peliculas-app', {
             peliculas: [],
             mostrarFavorito: false,
             page: 1,
-            total_pages: null
+            total_pages: null,
+            URL_Semi: null
         }
     },
     components: {
@@ -119,11 +120,22 @@ Vue.component('peliculas-app', {
                     console.log(this.peliculas);
                 })
                 .catch(error => console.log(error));
+        },
+        next(page){
+            console.log(page);
+            this.page = page+1;
+            this.conexion();
+        },
+        previous(page){
+            console.log(page);
+            this.page = page-1;
+            this.conexion();
         }
     },
     mounted() {
         let URL_local = new URL(window.location.href);
         this.page = URL_local.searchParams.get('page');
+        this.URL_Semi = URL_local.origin+URL_local.pathname;
         this.conexion();
     },
 });

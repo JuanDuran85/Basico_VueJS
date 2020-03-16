@@ -3,7 +3,7 @@ Vue.component('componente-app', {
         <section>
             <h2 v-text="titulo"></h2>
             Lista<input type="text" id="entrada"/>
-            <button @click="agregar">Crear</button>
+            <button v-on:click="agregar">Crear</button>
                 <div v-show="tareas.length > 0">
                     <h2>Lista</h2>
                     <ul>
