@@ -3,25 +3,15 @@ let peliculaComponent = {
     template: `
         <div class="card" :class="{pelicula_gustar:gustar}" :id="id | formadId">
             <img :src="'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+poster_path" alt="Caratula de pelicula" class="card-img-top">
-            <div class="card-body" :class="{clase_2:true,'clase-2':false}">
-                <h5 class="card-title" :class="[nombreClase_1,nombreClase_2]">
+            <div class="card-body">
+                <h5 class="card-title">
                     {{title | mayusTitle | centrado}}
                 </h5>
-                <p class="card-text" :class="clases">{{overview | recorte}}</p>
+                <p class="card-text">{{overview | recorte}}</p>
                 <button @click="gustaPeli" class="btn" :class="cambioClases">{{gustar ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
             </div>
         </div>
     `,
-    data() {
-        return {
-            nombreClase_1: "clase_x",
-            nombreClase_2: "clase_y",
-            clases: {
-                'clase-z': true,
-                clase_w: false,
-            },
-        }
-    },
     props: {
         id: {
             type: Number,
@@ -59,9 +49,9 @@ let peliculaComponent = {
         gustaPeli(){
             let datos = {
                 id: this.id,
-                gustando: !this.gusta
+                gustando: !this.gustar
             }
-            if (!this.gusta) {
+            if (!this.gustar) {
                 console.log(this.$parent.peliculas);
                 console.log(this.$parent.mostrarFavorito);
                 this.$parent.mostrarFavorito = true;

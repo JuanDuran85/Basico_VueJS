@@ -7,7 +7,7 @@ Vue.component('peliculas-app', {
             <h1 v-text="titulo"></h1>
             <h5>Bienvenido {{nombreCompleto}}</h5>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4" v-for="(peli,index) in peliculas">
+                <div class="col-12 col-md-6 col-lg-4 py-2" v-for="(peli,index) in peliculas">
                     <peliculaComponent :ref="'peli-'+peli.id"
                         :id="peli.id" 
                         :title="peli.title" 
@@ -47,10 +47,8 @@ Vue.component('peliculas-app', {
     methods: {
         leGustoPeli(datos){
             console.log(datos);
-            //aqui buscará en la lista de peliculas y retorne directamente la pelicula que tenga el id igual al de la data
             let pelicuGusta = this.peliculas.find(pelicula => pelicula.id == datos.id);
             pelicuGusta.gustar=datos.gustando;
-            //this.mostrarFavorito = datos.gustando;
             if (pelicuGusta.gustar){
                 const Toast = Swal.mixin({
                     toast: true,
@@ -65,7 +63,7 @@ Vue.component('peliculas-app', {
                 });
                 Toast.fire({
                     icon: 'success',
-                    title: `La pelicula ${pelicuGusta.titulo} fue agregada a favoritos`
+                    title: `La pelicula ${pelicuGusta.title} fue agregada a favoritos`
                 });
                 let corazon = document.getElementById("corazon");
                 let feed2 = document.getElementById("feed2");
@@ -89,7 +87,7 @@ Vue.component('peliculas-app', {
                 })
                 Toast.fire({
                     icon: 'error',
-                    title: `La pelicula ${pelicuGusta.titulo} fue eliminada de los favoritos`
+                    title: `La pelicula ${pelicuGusta.title} fue eliminada de los favoritos`
                 });
             };
         },
@@ -98,10 +96,8 @@ Vue.component('peliculas-app', {
             fetch(URL)
                 .then(respuesta => respuesta.json())
                 .then(json => {
-                    console.log(json.results);
                     this.peliculas = json.results;
                     this.peliculas.gustar = false;
-                    console.log(this.peliculas);
                 })
                 .catch(error => console.log(error));
         }
