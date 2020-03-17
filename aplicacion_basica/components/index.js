@@ -6,6 +6,7 @@ Vue.component('peliculas-app', {
         <div class="container">
             <h1 v-text="titulo"></h1>
             <h5>Bienvenido {{nombreCompleto}}</h5>
+            <busquedaComponent v-model="busquedaPelicula"/>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 py-3" v-for="(peli,index) in peliculas">
                     <peliculaComponent
@@ -51,12 +52,14 @@ Vue.component('peliculas-app', {
             total_pages: null,
             URL_Semi: null,
             retro: null,
-            plus: null
+            plus: null,
+            busquedaPelicula: {}
         }
     },
     components: {
         peliculaComponent,
-        peliculaFavorita
+        peliculaFavorita,
+        busquedaComponent
     },
     computed: {
         nombreCompleto(){
