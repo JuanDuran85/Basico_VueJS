@@ -185,4 +185,10 @@ Si bien las propiedades computadas son más apropiadas en la mayoría de los cas
 
 Ahora bien, cuando la data corresponde a un objeto donde las claves son expresiones para observar y los valores son los callbacks correspondientes... el valor también puede ser una cadena de texto con el nombre de un método o un Objeto que contenga opciones adicionales. En este caso, la instancia de Vue llamará al watch para cada entrada en el objeto en la instanciación.
 
-Importante: Cuando se trabaja con el Watch en objetos, al realizar cambios a los valores de las llaves los watchers no se activan directamente, por lo tanto, se deben utilizar manipuladores (handler) y opciones especificas (deep, immediate)
+Importante: Cuando se trabaja con el Watch en objetos, al realizar cambios a los valores de las llaves los watchers no se activan directamente, por lo tanto, se deben utilizar manipuladores (handler) y opciones especificas (deep, immediate).
+
+## Referencias (ref)
+
+En VueJS, ref es utilizado para registrar una referencia a un elemento o a un componente hijo desde el padre. La referencia será registrada bajo el objeto ```$refs``` del componente padre. Si se utiliza en un elemento “plano” del DOM, la referncia será a dicho elemento; si se utiliza en un componente hijo, la referencia será a la instancia de dicho componente. En otras palabras, las referencias nos sirven para asignar un marcador unico o "ID" para poder ver la data en los componentes hijos.  
+
+Una nota importante sobre el tiempo de registro de referencias: dado que las mismas son creadas como resultado de la función de renderizado, no se puede acceder a las mismas en la renderización inicial - estas no existen todavía! También, es importante destacar que las "refs" no son reactivas, por lo tanto, no se deben utilizar en plantillas para enlace de datos (data-binding).

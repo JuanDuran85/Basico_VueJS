@@ -24,17 +24,12 @@ let peliculaFavorita = {
     },
     methods: {
         mostrarMensaje(){
-            console.log(`Mensaje llamado desde el padre --> ${this.mensaje}`);
+            console.log(`Mensaje llamado desde el padre --> PATITO`);
+            alert(`Mensaje desde Hijo: ${this.mensaje}`);
         }
     },
     beforeCreate() {
-        console.log("beforeCreate desde peliculaFavorita");
-    },
-    created() {
-        console.log("Create desde peliculaFavorita");
-    },
-    beforeMount() {
-        console.log("beforeMount desde peliculaFavorita");
+        console.log("mensaje desde pelicula favorita beforecreate");
     },
     mounted() {
         let vm = this;
@@ -44,17 +39,5 @@ let peliculaFavorita = {
             vm.$emit("update:mostrar",false);
         });
         console.log("Mounted desde peliculaFavorita");
-    },
-    beforeUpdate() {
-        console.log("beforeUpdate desde peliculaFavorita");
-    },
-    updated() {
-        console.log("Updated desde peliculaFavorita");
-    },
-    beforeDestroy() {
-        console.log("beforeDestroy desde peliculaFavorita");
-    },
-    destroyed() {
-        console.log("Destroyed desde peliculaFavorita");
     },
 }

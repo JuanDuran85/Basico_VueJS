@@ -6,6 +6,7 @@ Vue.component('prop-component', {
             <!-- Al agregar el :key podemos eliminar la advertencia que aparece en la consola -->
             <!-- el binding se hace porque se pasa data del componente padra al hijo, distinto al pasar valores directos o textos -->
             <peliculaComponent :ref="'peli-'+peli.id" v-for="(peli,index) in peliculas"
+                :key="index"
                 :id="peli.id" 
                 :titulo="peli.titulo" 
                 :descrip="peli.descripcion" 
@@ -25,14 +26,14 @@ Vue.component('prop-component', {
                 {
                     id:1,
                     titulo:"Mulán",
-                    descripcion: "El emperador chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
+                    descripcion: "<b>El emperador</b> chino emite un decreto que exige que cada hogar debe reclutar a un varón para luchar con el ejército imperial en la guerra contra los Hunos. Para salvar a su anciano padre de este deber, su única hija Fa Mulan se hace pasar por soldado y toma su lugar.",
                     caratula: "https://lumiere-a.akamaihd.net/v1/images/mulan_payoff_poster_las_1_2459ff1d.jpeg",
                     gustar: false
                 },
                 {
                     id:2,
                     titulo:"Wonder Woman 2",
-                   
+                    
                     caratula: "https://www.tonica.la/__export/1559770060226/sites/debate/img/2019/06/05/d8uwzjewwaajqcm_crop1559769938875.jpg_1359985867.jpg",
                     gustar: false
                 },
@@ -105,16 +106,15 @@ Vue.component('prop-component', {
         }
     },
     beforeCreate() {
-        console.log("beforeCreate desde propComponent / antes de crear");
+        console.log("dentro de beforeCreate");
+        //alert("creando instancia de VueJS");
     },
     created() {
-        console.log("Create desde propComponent / ya creado");
-    },
-    beforeMount() {
-        console.log("beforeMount desde propComponent / antes de montarse");
+        console.log("mensaje desde created");
     },
     mounted() {
         console.log("------ Mounted desde propComponent / montado -------");
+        console.log(this.$refs);
         // con esto accedemos a la data del hijo
         console.log(`lamando data del hijo desde el padre --> ${this.$refs.idPeliFav.mensaje}`);
         // llamamos el mensaje en los metodos del hijo
@@ -123,17 +123,5 @@ Vue.component('prop-component', {
         this.$refs.idPeliFav.mensaje = " ----> Mensaje modificado desde el padre <---";
         // llamamos el mensaje en los metodos del hijo
         this.$refs.idPeliFav.mostrarMensaje();
-    },
-    beforeUpdate() {
-        console.log("beforeUpdate desde propComponent / antes de actualizar");
-    },
-    updated() {
-        console.log("Updated desde propComponent / actualizado");
-    },
-    beforeDestroy() {
-        console.log("beforeDestroy desde propComponent / antes de destruir");
-    },
-    destroyed() {
-        console.log("Destroyed desde propComponent / destruido");
     },
 });

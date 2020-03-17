@@ -4,7 +4,7 @@ let peliculaComponent = {
         <div>
             <img :src="caratula" alt="Caratula de pelicula"/>
             <h2 v-text="titulo"></h2>
-            <p v-text="descrip"></p>
+            <p v-html="descrip"></p>
             <button @click="gustaPeli" v-text="gusta ? 'Favorito':'Agregar a Favoritos'"></button>
             <hr>
         </div>
@@ -16,11 +16,11 @@ let peliculaComponent = {
         'caratula'
     ] */
     props: {
-        id: {
-            type: Number,
+        titulo: {
+            type: String,
             required: true
         },
-        titulo: {
+        caratula: {
             type: String,
             required: true
         },
@@ -28,16 +28,16 @@ let peliculaComponent = {
             type: String,
             default: "La pelicula no posee descripción"
         },
-        caratula: {
-            type: String,
-            required: true
-        },
         gusta: {
             type: Boolean,
             required: true,
             default(){
                 return false
             }
+        },
+        id: {
+            type: Number,
+            required: true
         },
     },
     methods: {
@@ -48,14 +48,17 @@ let peliculaComponent = {
                 id: this.id,
                 gustando: !this.gusta
             }
+            console.log(datos);
             //en la data del emit solo se puede pasar un valor
             
             //trabajando con el $parent
             if (!this.gusta) {
+                console.log("mostrando parent");
                 console.log(this.$parent.peliculas); //$parent es el componente padre / mostrando las peliculas en la data del componente padre
                 console.log(this.$parent.mostrarFavorito); //$parent es el componente padre / mostrando la variable mostrarFavorito del componente padre en la data
                 this.$parent.mostrarFavorito = true;
                 // ejecutando con evento el metodo en el padre
+                console.log(this.$parent.mostrarFavorito);
                 this.$parent.mostrandoCon();
 
             };
