@@ -22,6 +22,14 @@
     <script src="components/peliculas/peliculaFavorita.js"></script>
     <script src="components/index.js"></script>
     <script>
+      // utilizando mixin global
+      Vue.mixin({
+        filters: {
+          urlImg(parametro){
+            return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${parametro}`;
+          }
+        }
+      });
       // aquí iniciamos la instanacia de Vue.
       const vm = new Vue({
         el: "#vm"

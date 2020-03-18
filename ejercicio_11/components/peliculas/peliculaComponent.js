@@ -99,7 +99,7 @@ let peliculaComponent = {
         }
     },
     watch: {
-        //podemos ver el cambio del valor del props,pero ademas podemos comprar los valores y dependiendo de eso reccionar, o hacer llamados asincronos cuando el valor de una propiedad o data cambie
+        //podemos ver el cambio del valor del props,pero ademas podemos comparar los valores y dependiendo de eso reccionar, o hacer llamados asincronos cuando el valor de una propiedad o data cambie
         gusta(nuevoValor, viejoValor){
             console.log(nuevoValor);
             console.log(viejoValor);

@@ -192,3 +192,9 @@ Importante: Cuando se trabaja con el Watch en objetos, al realizar cambios a los
 En VueJS, ref es utilizado para registrar una referencia a un elemento o a un componente hijo desde el padre. La referencia será registrada bajo el objeto ```$refs``` del componente padre. Si se utiliza en un elemento “plano” del DOM, la referncia será a dicho elemento; si se utiliza en un componente hijo, la referencia será a la instancia de dicho componente. En otras palabras, las referencias nos sirven para asignar un marcador unico o "ID" para poder ver la data en los componentes hijos.  
 
 Una nota importante sobre el tiempo de registro de referencias: dado que las mismas son creadas como resultado de la función de renderizado, no se puede acceder a las mismas en la renderización inicial - estas no existen todavía! También, es importante destacar que las "refs" no son reactivas, por lo tanto, no se deben utilizar en plantillas para enlace de datos (data-binding).
+
+## Mixin
+
+Los mixins son una forma flexible de distribuir funcionalidades reutilizables para componentes de Vue. Un objeto mixin puede contener cualquier opción de componente. Cuando un componente usa un mixin, todas las opciones en el mixins se “mezclan” en las propias opciones del componente.
+
+También se puede aplicar un mixin globalmente. Estos consisten en aplicar funcionalidades globales a todos los componentes, por lo tanto, una vez que aplique un mixin globalmente, afectará a cada instancia de Vue creada posteriormente. Pero, cuando se usa correctamente, se puede usar para inyectar lógica de procesamiento para opciones personalizadas. Los mixin globales se deben utilizar lo menos posible y con cuidado, ya que afecta a cada instancia creada de Vue, incluidos los componentes de terceros. En la mayoría de los casos, solo se deben utilizar para el manejo de opciones personalizadas.

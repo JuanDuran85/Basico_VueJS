@@ -2,7 +2,7 @@
 let peliculaComponent = {
     template: `
         <div class="card" :class="{pelicula_gustar:gusta}" :id="id | formadId">
-            <img :src="'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+poster_path" alt="Caratula de pelicula" class="card-img-top">
+            <img :src="poster_path | urlImg" alt="Caratula de pelicula" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">
                     {{title | mayusTitle | centrado}}
@@ -27,7 +27,7 @@ let peliculaComponent = {
         },
         poster_path: {
             type: String,
-            required: true
+            required: false
         },
         gusta: {
             type: Boolean,

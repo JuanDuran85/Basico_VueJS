@@ -11,7 +11,7 @@ let busquedaComponent = {
                 <input class="form-control my-0 py-1 green-border" 
                     type="text" 
                     placeholder="Buscar" 
-                    aria-label="Buscar"  v-model="query">
+                    aria-label="Buscar" v-model="query">
                 <div class="input-group-append">
                     <button class="input-group-text green">
                         <i class="fas fa-search text-grey"
@@ -33,9 +33,9 @@ let busquedaComponent = {
             let URL = `${URL_BASICA}search/movie?api_key=${APIKEY}&language=en-US&query=${this.query}`;
             fetch(URL)
                 .then(respuesta => respuesta.json())
-                .then(datos => {
-                    console.log(datos);
-                    this.$emit('input',datos);
+                .then(json => {
+                    console.log(json);
+                    this.$emit('input',json);
                 })
                 .catch(error => console.log(error));
         }
