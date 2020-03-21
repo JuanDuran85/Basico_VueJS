@@ -1,7 +1,7 @@
 const APIKEY = "fb3ca15f2fd38a0b602cd1f26c17524c";
 const URL_BASICA = "https://api.themoviedb.org/3/";
 
-Vue.component('peliculas-app', {
+let peliculasApp = Vue.component('peliculas-app', {
     template: `
         <div class="container">
             <h1 v-text="titulo"></h1>
@@ -26,7 +26,7 @@ Vue.component('peliculas-app', {
                             <li class="page-item">
                                 <a class="page-link" :href="retro" tabindex="-1" v-show="page != 1" @click.prevent="previous(page)">Previous</a>
                             </li>
-                            <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag*20/peliculas.length < 10">
+                            <li class="page-item" v-for="(pag,index) in total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag < 10">
                                 <a class="page-link" :href="URL_Semi+'?page='+pag">{{pag}} <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="page-item">
@@ -53,14 +53,8 @@ Vue.component('peliculas-app', {
                 <div class="row">
                     <nav aria-label="...">
                         <ul class="pagination text-center">
-                            <li class="page-item">
-                                <a class="page-link" :href="retro" tabindex="-1" v-show="page != 1" @click.prevent="previous(page)">Previous</a>
-                            </li>
-                            <li class="page-item" v-for="(pag,index) in busquedaPelicula.total_pages" :key="index" :class="{'active': pag == page}" aria-current="page" v-show="pag*20/peliculas.length < 10">
-                                <a class="page-link" :href="URL_Semi+'?page='+pag">{{pag}} <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" :href="plus" @click.prevent="next(page)" style="cursor:pointer">Next</a>
+                            <li class="page-item" v-for="(pagB,index) in busquedaPelicula.total_pages" :key="index" :class="{'active': pagB == pageB}" aria-current="page" v-show="pagB < 10">
+                                <a class="page-link" :href="URL_Busqueda+'?page='+pagB">{{pagB}} <span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -81,12 +75,14 @@ Vue.component('peliculas-app', {
             peliculas: [],
             mostrarFavorito: false,
             page: 1,
+            pageB: 1,
             total_pages: null,
             URL_Semi: null,
             retro: null,
             plus: null,
             busquedaPelicula: {},
-            nombreQuery: null
+            nombreQuery: null,
+            URL_Busqueda: null
         }
     },
     components: {
@@ -180,5 +176,8 @@ Vue.component('peliculas-app', {
     updated() {
         console.log(this.$refs.nombreBusqueda.query);
         this.nombreQuery = this.$refs.nombreBusqueda.query;
+        let URL_local_B = new URL(window.location.href);
+        this.pageB = URL_local_B.searchParams.get('page');
+        this.URL_Busqueda = URL_local_B.origin+URL_local_B.pathname;
     },
 });

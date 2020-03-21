@@ -4,7 +4,7 @@ let busquedaComponent = {
         <form @submit.prevent="buscar" class="form-inline md-form form-sm mt-0">
             <div class="input-group md-form form-sm form-2 pl-0 w-100">
                 <div v-show="query" class="input-group-append">
-                    <span class="btn btn-danger">
+                    <span class="btn btn-danger" @click="resetBusqueda">
                         <i class="fas fa-times"></i>
                     </span>
                 </div>
@@ -25,7 +25,8 @@ let busquedaComponent = {
     `,
     data() {
         return {
-            query: ''
+            query: '',
+            page: 1
         }
     },
     methods: {
@@ -38,6 +39,11 @@ let busquedaComponent = {
                     this.$emit('input',json);
                 })
                 .catch(error => console.log(error));
+        },
+        resetBusqueda(){
+            this.query = '';
+            this.page = 1;
+            this.$emit("input", {});
         }
     },
 }

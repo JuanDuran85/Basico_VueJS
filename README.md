@@ -195,6 +195,25 @@ Una nota importante sobre el tiempo de registro de referencias: dado que las mis
 
 ## Mixin
 
-Los mixins son una forma flexible de distribuir funcionalidades reutilizables para componentes de Vue. Un objeto mixin puede contener cualquier opción de componente. Cuando un componente usa un mixin, todas las opciones en el mixins se “mezclan” en las propias opciones del componente.
+Los mixins son una forma flexible de distribuir funcionalidades reutilizables para componentes de Vue. Un o
+
+
+
+
+bjeto mixin puede contener cualquier opción de componente. Cuando un componente usa un mixin, todas las opciones en el mixins se “mezclan” en las propias opciones del componente.
 
 También se puede aplicar un mixin globalmente. Estos consisten en aplicar funcionalidades globales a todos los componentes, por lo tanto, una vez que aplique un mixin globalmente, afectará a cada instancia de Vue creada posteriormente. Pero, cuando se usa correctamente, se puede usar para inyectar lógica de procesamiento para opciones personalizadas. Los mixin globales se deben utilizar lo menos posible y con cuidado, ya que afecta a cada instancia creada de Vue, incluidos los componentes de terceros. En la mayoría de los casos, solo se deben utilizar para el manejo de opciones personalizadas.
+
+## [Vue Router](https://router.vuejs.org/)
+Permite recordar y mantener las instancias de las rutas de nuestro navegador, y que solamente se actualice el componente que compone esa ruta. Por lo tanto, se podrá cambiar el URL sin perder el estado de nuestra aplicacion mediante una SPA.
+
+Vue Router es el enrutador oficial de VueJS, el cual, se integra profundamente con el núcleo de VueJS para facilitar la creación de aplicaciones de una sola página (SPA). Las características incluyen:
+
+* Ruta anidada / mapeo de vista
+* Configuración de enrutador modular basada en componentes
+* Parámetros de ruta, consulta, comodines
+* Ver los efectos de transición impulsados ​​por el sistema de transición de Vue.js
+* Control de navegación de grano fino
+* Enlaces con clases de CSS activas automáticas
+* Modo de historial HTML5 o modo hash, con recuperación automática en IE9
+* Comportamiento de desplazamiento personalizable
