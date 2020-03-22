@@ -222,3 +222,8 @@ Vue Router es el enrutador oficial de VueJS, el cual, se integra profundamente c
 ## [VueX](https://vuex.vuejs.org/)
 
 Vuex es un patrón de gestión de estado + biblioteca para aplicaciones Vue.js. Sirve como una tienda centralizada para todos los componentes de una aplicación, con reglas que aseguran que el estado solo pueda mutarse de manera predecible. También se integra con la extensión de devtools oficial de Vue para proporcionar funciones avanzadas como la depuración de viaje en el tiempo de configuración cero y la exportación / importación de instantáneas de estado.
+
+Ahora bien, en el centro de cada aplicación Vuex está la tienda. Una "tienda" es básicamente un contenedor que contiene el estado de su aplicación. Hay dos cosas que hacen que una tienda Vuex sea diferente de un objeto global simple:
+
+1. Las tiendas Vuex son reactivas. Cuando los componentes Vue recuperan el estado, se actualizarán de manera reactiva y eficiente si el estado de la tienda cambia.
+2. No puede mutar directamente el estado de la tienda. La única forma de cambiar el estado de una tienda es mediante la confirmación explícita de mutaciones. Esto garantiza que cada cambio de estado deje un registro rastreable y habilite herramientas que nos ayuden a comprender mejor nuestras aplicaciones.
