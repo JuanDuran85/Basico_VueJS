@@ -217,3 +217,7 @@ Vue Router es el enrutador oficial de VueJS, el cual, se integra profundamente c
 * Enlaces con clases de CSS activas automáticas
 * Modo de historial HTML5 o modo hash, con recuperación automática en IE9
 * Comportamiento de desplazamiento personalizable
+
+## VueX
+
+Vuex es un patrón de gestión de estado + biblioteca para aplicaciones Vue.js. Sirve como una tienda centralizada para todos los componentes de una aplicación, con reglas que aseguran que el estado solo pueda mutarse de manera predecible. También se integra con la extensión de devtools oficial de Vue para proporcionar funciones avanzadas como la depuración de viaje en el tiempo de configuración cero y la exportación / importación de instantáneas de estado.
