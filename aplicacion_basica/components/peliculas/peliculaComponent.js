@@ -9,6 +9,7 @@ let peliculaComponent = {
                 </h5>
                 <p class="card-text">{{overview | recorte}}</p>
                 <button @click="gustaPeli" class="btn" :class="cambioClases">{{gusta ? 'Favorito ':'Agregar a Favoritos '}}<i :class="corazonGusta"></i></button>
+                <router-link :to="{name: 'detalles', params: {id}}" class="btn btn-primary">Detalles</router-link>
             </div>
         </div>
     `,

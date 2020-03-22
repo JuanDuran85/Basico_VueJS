@@ -1,6 +1,3 @@
-const APIKEY = "fb3ca15f2fd38a0b602cd1f26c17524c";
-const URL_BASICA = "https://api.themoviedb.org/3/";
-
 let peliculasApp = Vue.component('peliculas-app', {
     template: `
         <div class="container">
