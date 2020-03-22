@@ -205,6 +205,7 @@ bjeto mixin puede contener cualquier opción de componente. Cuando un componente
 También se puede aplicar un mixin globalmente. Estos consisten en aplicar funcionalidades globales a todos los componentes, por lo tanto, una vez que aplique un mixin globalmente, afectará a cada instancia de Vue creada posteriormente. Pero, cuando se usa correctamente, se puede usar para inyectar lógica de procesamiento para opciones personalizadas. Los mixin globales se deben utilizar lo menos posible y con cuidado, ya que afecta a cada instancia creada de Vue, incluidos los componentes de terceros. En la mayoría de los casos, solo se deben utilizar para el manejo de opciones personalizadas.
 
 ## [Vue Router](https://router.vuejs.org/)
+
 Permite recordar y mantener las instancias de las rutas de nuestro navegador, y que solamente se actualice el componente que compone esa ruta. Por lo tanto, se podrá cambiar el URL sin perder el estado de nuestra aplicacion mediante una SPA.
 
 Vue Router es el enrutador oficial de VueJS, el cual, se integra profundamente con el núcleo de VueJS para facilitar la creación de aplicaciones de una sola página (SPA). Las características incluyen:
@@ -218,6 +219,6 @@ Vue Router es el enrutador oficial de VueJS, el cual, se integra profundamente c
 * Modo de historial HTML5 o modo hash, con recuperación automática en IE9
 * Comportamiento de desplazamiento personalizable
 
-## VueX
+## [VueX](https://vuex.vuejs.org/)
 
 Vuex es un patrón de gestión de estado + biblioteca para aplicaciones Vue.js. Sirve como una tienda centralizada para todos los componentes de una aplicación, con reglas que aseguran que el estado solo pueda mutarse de manera predecible. También se integra con la extensión de devtools oficial de Vue para proporcionar funciones avanzadas como la depuración de viaje en el tiempo de configuración cero y la exportación / importación de instantáneas de estado.
