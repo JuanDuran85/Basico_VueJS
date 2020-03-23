@@ -33,11 +33,15 @@
         <div v-for="(item, index) in nombres" :key="index">
             {{index}}-{{item}}
         </div>
+        <!-- Utilizando V-HTML-->
         <div>
             <br>Sin directiva v-html
             {{conte_html}}
             <div>Con directiva v-html: <span v-html="conte_html"></span></div>
         </div>
+        <!-- Utilizando V-BIND-->
+        <p>Utilizado v-bind</p>
+        <img :src="direccion" alt="alternativa">
     </div>
     <!--Llamando a VueJS por CDN-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

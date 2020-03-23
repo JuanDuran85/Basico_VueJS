@@ -8,7 +8,8 @@ const app = new Vue({
             valor: -5,
             mostrar: true,
             nombres: ["Juan","Manuel","Elio","Maria","Patricia","Karla"],
-            conte_html: "<p>Trabajando con <stron>v-html</stron></p>"
+            conte_html: "<p>Trabajando con <stron>v-html</stron></p>",
+            direccion: "https://es.vuejs.org/images/logo.png?_sw-precache=cf23526f451784ff137f161b8fe18d5a"
         }
     },
     //propiedades computadas (se guarda en cache, por lo que no se repite)
