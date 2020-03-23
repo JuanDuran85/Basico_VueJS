@@ -42,6 +42,10 @@
         <!-- Utilizando V-BIND-->
         <p>Utilizado v-bind</p>
         <img v-bind:src="direccion" :alt="alterna">
+        <!--Utilizando V-MODEL-->
+        <hr>
+        <input type="text" v-model="vmodel">
+        <p>{{vmodel}}</p>
     </div>
     <!--Llamando a VueJS por CDN-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
