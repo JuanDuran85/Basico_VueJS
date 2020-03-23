@@ -7,7 +7,7 @@
 
 ## Ejemplo_2
 
-* Utilizacion de directivas como: v-bind,v-for, v-if-else, v-html
+* Utilizacion de directivas como: v-bind, v-for, v-if-else, v-html, v-model, v-show
 
 ## Ejemplo_3
 
@@ -15,4 +15,8 @@
 
 ## Ejemplo_4
 
-* Utilización de Watch
+* Utilización de Watch como visor de cambios
+
+## Ejemplo_5
+
+* Implementación de rutas con Vue Router.
