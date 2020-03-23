@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementado Rutas con Vue Router</title>
+</head>
+<body>
+    <div id="vm">
+        <h1>Utilizando Vue Router en VueJS</h1>
+        <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
+        <router-link to="/seccion1">Ir a sección 1</router-link>
+        <router-link to="/seccion2">Ir a Sección 2</router-link>
+        <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="js/rutas.js"></script>
+</body>
+</html>
