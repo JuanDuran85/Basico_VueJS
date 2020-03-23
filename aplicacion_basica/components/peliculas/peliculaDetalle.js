@@ -24,7 +24,6 @@ let peliculaDetalle = {
                 .then(respuesta => respuesta.json())
                 .then(data => {
                     this.movie = data;
-                    console.log(this.movie);
                 })
                 .catch(error => console.error(error));
         }

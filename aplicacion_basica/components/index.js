@@ -94,9 +94,10 @@ let peliculasApp = Vue.component('peliculas-app', {
     },
     methods: {
         leGustoPeli(datos){
-            console.log(datos);
             let pelicuGusta = this.peliculas.find(pelicula => pelicula.id == datos.id);
             pelicuGusta.gustar=datos.gustando;
+            //agregando pelicula favorita al store
+            this.$store.commit('addPeliFav',pelicuGusta);
             if (pelicuGusta.gustar){
                 const Toast = Swal.mixin({
                     toast: true,
@@ -171,7 +172,6 @@ let peliculasApp = Vue.component('peliculas-app', {
         this.conexion();
     },
     updated() {
-        console.log(this.$refs.nombreBusqueda.query);
         this.nombreQuery = this.$refs.nombreBusqueda.query;
         let URL_local_B = new URL(window.location.href);
         this.pageB = URL_local_B.searchParams.get('page');

@@ -4,6 +4,7 @@ let peliculaComponent = {
         <div class="card" :class="{pelicula_gustar:gusta}" :id="id | formadId">
             <img :src="poster_path | urlImg" alt="Caratula de pelicula" class="card-img-top">
             <div class="card-body">
+                <p>{{datos}}</p>
                 <h5 class="card-title">
                     {{title | mayusTitle | centrado}}
                 </h5>
@@ -44,18 +45,19 @@ let peliculaComponent = {
         },
         corazonGusta(){
             return this.gusta ? 'fas fa-heart':'fas fa-heart-broken'
-        }
+        },
     },
     methods: {
         gustaPeli(){
-            let datos = {
+            this.datos = {
                 id: this.id,
                 gustando: !this.gusta
-            }
+            };
+            this.id2 = this.id;
             if (!this.gusta) {
                 this.$parent.mostrarFavorito = true;
             };
-            this.$emit("gustarPeli", datos);
+            this.$emit("gustarPeli", this.datos);
         },
     },
     filters: {

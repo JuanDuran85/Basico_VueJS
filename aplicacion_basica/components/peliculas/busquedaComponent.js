@@ -35,7 +35,6 @@ let busquedaComponent = {
             fetch(URL)
                 .then(respuesta => respuesta.json())
                 .then(json => {
-                    console.log(json);
                     this.$emit('input',json);
                 })
                 .catch(error => console.log(error));
