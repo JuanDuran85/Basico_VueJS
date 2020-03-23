@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Ejemplo 1 - VueJS</title>
 </head>
 <body>
@@ -42,6 +43,7 @@
         <!-- Utilizando V-BIND-->
         <p>Utilizado v-bind</p>
         <img v-bind:src="direccion" :alt="alterna">
+        <h1 :class="{error: data_error, no_error: !data_error}">Texto con clases V-BIND</h1>
         <!--Utilizando V-MODEL-->
         <hr>
         <input type="text" v-model="vmodel">

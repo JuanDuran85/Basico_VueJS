@@ -1,0 +1,11 @@
+.error {
+    background-color: darkgrey;
+    color: red;
+    font-size: 24px;
+}
+
+.no_error {
+    background-color: aquamarine;
+    color: blue;
+    font-size: 24px;
+}

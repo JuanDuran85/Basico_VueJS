@@ -11,7 +11,8 @@ const app = new Vue({
             conte_html: "<p>Trabajando con <stron>v-html</stron></p>",
             direccion: "https://es.vuejs.org/images/logo.png?_sw-precache=cf23526f451784ff137f161b8fe18d5a",
             alterna: "texto alternativo para la imagen",
-            vmodel: "mensaje desde data para usar directiva vmodel"
+            vmodel: "mensaje desde data para usar directiva vmodel",
+            data_error: false
         }
     },
     //propiedades computadas (se guarda en cache, por lo que no se repite)
