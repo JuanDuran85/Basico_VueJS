@@ -12,3 +12,7 @@
 ## Ejemplo_3
 
 * Utilización de eventos con la directiva v-on y el evento click.
+
+## Ejemplo_4
+
+* Utilización de Watch
