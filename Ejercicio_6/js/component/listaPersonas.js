@@ -1,5 +1,5 @@
-const Componente_1 = {
-    name: "componente_1",
+const ListaPersonas = {
+    name: "listaPersonas",
     template: `
         <div>
         <br>

@@ -3,8 +3,12 @@ const router = new VueRouter({
     base: "rutas",
     routes: [
         {
-            path: "/componente_1",
-            component: Componente_1
+            path: "/listapersonas",
+            component: ListaPersonas
+        },
+        {
+            path: "/listaprogramas",
+            component: ListaProgramas
         }
     ]
 })

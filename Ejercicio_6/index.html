@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Implementado Rutas con Vue Router</title>
 </head>
 <body>
-    <div id="vm">
-        <h1>Utilizando Vue Router en VueJS</h1>
-        <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
-        <router-link to="/">Ir Home</router-link>
-        <router-link to="/componente_1">Ir Componente</router-link>
-        <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
-        <router-view></router-view>
+    <div class="container">
+        <div id="vm">
+            <h1>Utilizando Vue Router en VueJS</h1>
+            <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
+            <router-link to="/">Ir Home |</router-link>
+            <router-link to="/listapersonas">Lista de Personas |</router-link>
+            <router-link to="/listaprogramas">Lista de Programas</router-link>
+            <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
+            <router-view></router-view>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
-    <script src="js/component/componente_1.js"></script>
+    <script src="js/component/listaPersonas.js"></script>
+    <script src="js/component/listaProgramas.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
