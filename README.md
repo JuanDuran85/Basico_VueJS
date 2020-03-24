@@ -20,3 +20,7 @@
 ## Ejemplo_5
 
 * Implementación de rutas con Vue Router. Las rutas, nos permiten movernos de una pagina a otra, creando aplicaciones del tipo SPA, la cual, es una aplicacion web que puede entrar en una sola página, cargando secciones indicadas solamente y no toda la página. 
+
+## Ejemplo_6
+
+* Implementación de rutas (Vue Router) con Componentes en VueJS.

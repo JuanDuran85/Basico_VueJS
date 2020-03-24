@@ -13,7 +13,10 @@
             <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
             <router-link to="/">Ir Home |</router-link>
             <router-link to="/listapersonas">Lista de Personas |</router-link>
-            <router-link to="/listaprogramas">Lista de Programas</router-link>
+            <router-link to="/listaprogramas">Lista de Programas |</router-link>
+            <router-link to="/listaprogramasFull">Lista de Programas |</router-link>
+            <router-link to="/ejemplo">Ejemplo |</router-link>
+            <router-link to="/enlace">Enlace no encontrado</router-link>
             <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
             <router-view></router-view>
         </div>
@@ -21,7 +24,25 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
     <script src="js/component/listaPersonas.js"></script>
+    <script src="js/component/home.js"></script>
+    <script src="js/component/pageNotFund.js"></script>
     <script src="js/component/listaProgramas.js"></script>
+    <script src="js/component/listaAlerta.js"></script>
     <script src="js/index.js"></script>
+    <script type="text/x-template" id="ejemplo_template">
+        <div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+    </script>
 </body>
 </html>
