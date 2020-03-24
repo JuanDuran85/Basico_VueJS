@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
     <title>Implementado Rutas con Vue Router</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div id="vm">
-            <h1>Utilizando Vue Router en VueJS</h1>
-            <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
-            <router-link to="/">Ir Home |</router-link>
-            <router-link to="/listapersonas">Lista de Personas |</router-link>
-            <router-link to="/listaprogramas">Lista de Programas |</router-link>
-            <router-link to="/listaprogramasFull">Lista de Programas |</router-link>
-            <router-link to="/ejemplo">Ejemplo |</router-link>
-            <router-link to="/enlace">Enlace no encontrado</router-link>
-            <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
-            <router-view></router-view>
-        </div>
+      <div id="vm">
+        <h1>Utilizando Vue Router en VueJS</h1>
+        <!-- use el componente router-link para la navegación. especifique el enlace pasando el accesorio "to". <router-link> se representará como una etiqueta "<a>" por defecto -->
+        <router-link to="/">Ir Home |</router-link>
+        <router-link to="/listapersonas">Lista de Personas |</router-link>
+        <router-link to="/listaprogramas">Lista de Programas |</router-link>
+        <router-link to="/listaprogramasFull">Lista de Programas |</router-link>
+        <router-link to="/ejemplo">Ejemplo |</router-link>
+        <router-link to="/enlace">Enlace no encontrado</router-link>
+        <br>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+          Ventana Modal
+        </button>
+        <ventana-modal>
+            <p>Contenido para ventana modal en compenente</p>
+        </ventana-modal>
+        <!-- Enrutador de salida. El componente que coincida con la ruta se mostrará aquí. -->
+        <router-view></router-view>
+      </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
     <script src="js/component/listaPersonas.js"></script>
     <script src="js/component/home.js"></script>
     <script src="js/component/pageNotFund.js"></script>
     <script src="js/component/listaProgramas.js"></script>
+    <script src="js/component/slot.js"></script>
     <script src="js/component/listaAlerta.js"></script>
     <script src="js/index.js"></script>
     <script type="text/x-template" id="ejemplo_template">
-        <div>
-            <br>
-            <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+      <div>
+          <br>
+          <div class="card">
+              <div class="card-header">
+                Featured
               </div>
-        </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+      </div>
     </script>
-</body>
+  </body>
 </html>
