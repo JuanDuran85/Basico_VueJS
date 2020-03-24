@@ -24,3 +24,5 @@
 ## Ejemplo_6
 
 * Implementación de rutas (Vue Router) con Componentes en VueJS.
+* Utilización de Slot
+* Implementación de Bootstrap
