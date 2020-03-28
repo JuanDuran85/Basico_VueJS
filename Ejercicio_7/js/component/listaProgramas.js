@@ -34,9 +34,13 @@ const ListaProgramas = {
     },
     methods: {
         filtrar(){
+            this.paises = this.CopiaPaises;
             this.paises = this.paises.filter(variable => {
                 return variable.poblacion > this.filtro_poblacion;
             })
         }
+    },
+    created() {
+        this.CopiaPaises = this.paises;
     },
 }
