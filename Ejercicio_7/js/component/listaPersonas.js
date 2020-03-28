@@ -5,7 +5,6 @@ const ListaPersonas = {
             <br>
                 <ul>
                     <li v-for="(item, index) in nombres" :key="index">{{index}}-{{item}} {{item | filtandoPersonas}}</li>
-
                 </ul>
             <br>
             <ul>
@@ -20,6 +19,8 @@ const ListaPersonas = {
                 </li>
             </ul>
             <br>
+            <imagen-post :url="urlIMG"></imagen-post>
+            <br><br>
             <lista-alerta></lista-alerta>
         </div>
     `,
@@ -27,7 +28,8 @@ const ListaPersonas = {
         return {
             nombres: ["Juan","Pedro","Maria","Minerva","Jose"],
             nombres2: ["Juan","Pedro","Maria","Minerva","Jose"],
-            validando: false
+            validando: false,
+            urlIMG: "https://cdn.pixabay.com/photo/2020/02/07/14/49/glacier-4827387_960_720.jpg"
         }
     },
     filters: {
