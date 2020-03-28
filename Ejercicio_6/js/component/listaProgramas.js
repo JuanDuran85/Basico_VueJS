@@ -4,7 +4,9 @@ const ListaProgramas = {
         <div>
         <br>
             <ul>
-                <li v-for="(item, index) in programas" :key="index">{{index}}-{{item}}</li>
+                <li v-for="(item, index) in programas" :key="index">
+                    {{index}}-{{item}}<span v-if="index == programas.length -1"> - Último elemento del arreglo</span>
+                </li>
             </ul>
         </div>
     `,
