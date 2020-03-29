@@ -22,7 +22,12 @@ const ListaPersonas = {
             <br>
             <br>
             <select>
-                <option v-for="(lugar,index) in ciudades" :key="index" :value="lugar" v-if="buscando(lugar)">{{lugar}}</option>
+                <option v-for="(lugar,index) in ciudades" 
+                    :key="index" 
+                    :value="lugar" 
+                    v-if="buscando(lugar)">
+                        {{lugar}}
+                </option>
             </select>
             <input type="text" v-model="busqueda">
             <br>
