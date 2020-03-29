@@ -19,7 +19,7 @@ const ListaPersonas = {
                 </li>
             </ul>
             <br>
-            <imagen-post :url="urlIMG"></imagen-post>
+            <imagen-post :url="urlIMG" :url2="url2"></imagen-post>
             <br><br>
             <lista-alerta></lista-alerta>
         </div>
@@ -29,7 +29,8 @@ const ListaPersonas = {
             nombres: ["Juan","Pedro","Maria","Minerva","Jose"],
             nombres2: ["Juan","Pedro","Maria","Minerva","Jose"],
             validando: false,
-            urlIMG: "https://cdn.pixabay.com/photo/2020/02/07/14/49/glacier-4827387_960_720.jpg"
+            urlIMG: "https://cdn.pixabay.com/photo/2020/02/07/14/49/glacier-4827387_960_720.jpg",
+            url2: "https://placeholder.pics/svg/150"
         }
     },
     filters: {
