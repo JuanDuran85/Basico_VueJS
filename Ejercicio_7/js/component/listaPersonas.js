@@ -20,6 +20,13 @@ const ListaPersonas = {
                 </li>
             </ul>
             <br>
+            <br>
+            <select>
+                <option v-for="(lugar,index) in ciudades" :key="index" :value="lugar" v-if="buscando(lugar)">{{lugar}}</option>
+            </select>
+            <input type="text" v-model="busqueda">
+            <br>
+            <br>
             <lista-alerta></lista-alerta>
         </div>
     `,
@@ -27,7 +34,9 @@ const ListaPersonas = {
         return {
             nombres: ["Juan","Pedro","Maria","Minerva","Jose"],
             nombres2: ["Juan","Pedro","Maria","Minerva","Jose"],
-            validando: false
+            validando: false,
+            ciudades: ["Barinas", "Santiago", "Caracas", "Viña del Mar","Bogota"],
+            busqueda: '',
         }
     },
     filters: {
@@ -37,7 +46,7 @@ const ListaPersonas = {
             }
         },
         filtandoPersonas2(variable){
-            if (variable.length > 6 ) {
+            if (variable.length > 6  ) {
                 return variable;
             }else{
                 return `${variable} No cumple con la condicion`;
@@ -48,8 +57,12 @@ const ListaPersonas = {
         filtro3(){
             this.validando = !this.validando;
             this.nombres2 = this.nombres2.filter(variable => {
-                return variable.length > 5;
+                return variable.length > 4;
             });
+        },
+        buscando(lugar){
+            console.log("lugar: "+lugar + " busqueda: " + this.busqueda);
+            return lugar.toLowerCase().indexOf(this.busqueda.toLowerCase()) >= 0
         }
     },
 }
