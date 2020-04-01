@@ -37,3 +37,4 @@
     - Modificacion del package.json agregando al scripts: ```"dev": "webpack --mode=development"```. Por lo que para dar inicio a la compilacion y creacion de la carpeta dist con el archivo main.js, se utiliza el: ```npm run dev```
     - Creacion de componentes, importar y exportar archivos, instancia de Vue.
     - Instalacion de la dependencia de HTML Webpack: ```npm i --save-dev html-webpack-plugin```
+    - Instalacion de la dependencia ```npm i -D vue-loader vue-template-compiler```
