@@ -38,3 +38,9 @@
     - Creacion de componentes, importar y exportar archivos, instancia de Vue.
     - Instalacion de la dependencia de HTML Webpack: ```npm i --save-dev html-webpack-plugin```
     - Instalacion de la dependencia ```npm i -D vue-loader vue-template-compiler```
+
+* En total, las dependencias basicas a isntalar serian:
+* 
+```bash
+npm i -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env css-loader vue-style-loader html-webpack-plugin
+```
