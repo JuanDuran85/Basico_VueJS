@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const app = new Vue({
     el:'#vm',
     data() {
         return {
             mensaje: "mensaje 1"
 =======
+=======
+>>>>>>> ejercicio1
 //Creando Instancia de VueJS
 const app = new Vue({
     el:"#vm",
@@ -25,6 +28,9 @@ const app = new Vue({
     methods: {
         calculaSuma (valor1,valor2){
             return valor1+valor2
+<<<<<<< HEAD
+>>>>>>> ejercicio1
+=======
 >>>>>>> ejercicio1
         }
     },

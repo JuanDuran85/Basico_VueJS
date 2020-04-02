@@ -1,6 +1,7 @@
 # VueJS
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> filtros
 
@@ -35,3 +36,5 @@
 * Utilización de Slot
 * Implementación de Bootstrap
 >>>>>>> filtros
+=======
+>>>>>>> ejercicio1
