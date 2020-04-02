@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch con VueJS</title>
+</head>
+<body>
+    <div id="vm">
+        <button v-on:click="incrementar">Incremento</button>
+        <button @click="decrementar">Decremento</button>
+        {{numero}}
+        <h1 id="titulo">Titulo cambiando de tamaño</h1>
+        <h1 :style="{color: 'red',fontSize: numero+'px'}">Titulo cambindo de tamaño: {{numero}}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/watcher.js"></script>
+</body>
+</html>
