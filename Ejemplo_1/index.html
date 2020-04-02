@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejemplo 1 - VueJS</title>
 </head>
 <body>
-    
+    <h1>Inciando con VueJS</h1>
+    <div id="vm">
+        <!--Ambito del VueJS-->
+        {{mensaje}}
+        <p>{{revertirMensaje}}</p>
+        <p>Realizado directamente desdel el ambito {{ mensaje.split('').reverse().join('')}}</p>
+        <p>Resultado de la Suma: {{calculaSuma(valor,4)}}</p>
+    </div>
+    <!--Llamando a VueJS por CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
