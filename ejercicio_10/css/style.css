@@ -1,0 +1,59 @@
+.feed {
+	background-color: white;
+	border-radius: 10px;
+	padding: 2rem 1rem;
+	width: 10%;
+	height: 10%;
+	top: 0;
+	left: 0;
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+}
+.feeds {
+	width: 20%;
+	margin: 0 auto;
+	position: relative;
+}
+.heart {
+	background-image: url('../img/web_heart_animation.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: 1450px;
+	cursor: pointer;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+}
+.heart:hover
+{
+	background-position: right;
+}
+
+@-webkit-keyframes heartTransition
+{
+	0% {background-position: left;}
+	100% {background-position: right;}
+}
+
+@keyframes heartTransition
+{
+	0% {background-position: left;}
+	100% {background-position: right;}
+}
+
+.heart_animate
+{
+	-webkit-animation-duration: .8s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-name: heartTransition;
+	-webkit-animation-timing-function: steps(28);
+	animation-duration: .8s;
+	animation-iteration-count: infinite;
+	animation-name: heartTransition;
+	animation-timing-function: steps(28);
+	background-position: right;
+	display: flex;
+	justify-content: center;
+}

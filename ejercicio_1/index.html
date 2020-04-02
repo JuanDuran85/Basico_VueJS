@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>VueJS - Ejemplo 1</title>
+</head>
+<body>
+    <h1>Primer Ejemplo con VueJS</h1>
+    <!-- Declarando el ambito de nuestro VueJS. La referencia debe ser unica dentro del body, no puede ser el mismo body o html  -->
+    <section id="app">
+        <p>{{mensaje}}</p>
+        <p>{{suma}}</p>
+    </section>
+    <div id="vm">
+        <p>{{mensaje2}}</p>
+    </div>
+    <script>
+        new Vue ({
+            el:"#app",
+            data: {
+                   mensaje: "Mensaje desde VueJS local",
+                   suma: (2+5)-(1*4) 
+                }
+        });
+
+        new Vue ({
+            el:"#vm",
+            data() {
+                return {
+                    mensaje2: "Mensaje desde instancia 2"
+                }
+            },
+        });
+    </script>
+</body>
+</html>

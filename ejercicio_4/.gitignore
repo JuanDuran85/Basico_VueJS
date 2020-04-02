@@ -1,9 +1,6 @@
-Ejemplo_8/node_modules
-ejemplo_9/node_modules
-ejercicio4/node_modules
-
 .DS_Store
 node_modules
+/dist
 
 # local env files
 .env.local
