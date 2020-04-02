@@ -15,8 +15,8 @@ export default {
         }
     },
     methods: {
-        alerta(){
-            alert("mensaje desde componente con extension vue");
+        alerta:()=>{
+            alert(`mensaje desde componente con extension vue`);
         }
     },
 }
