@@ -5,7 +5,6 @@ const ListaPersonas = {
             <br>
                 <ul>
                     <li v-for="(item, index) in nombres" :key="index">{{index}}-{{item}} {{item | filtandoPersonas}}</li>
-
                 </ul>
             <br>
             <ul>
@@ -20,6 +19,7 @@ const ListaPersonas = {
                 </li>
             </ul>
             <br>
+<<<<<<< HEAD
             <br>
             <select>
                 <option v-for="(lugar,index) in ciudades" 
@@ -32,6 +32,10 @@ const ListaPersonas = {
             <input type="text" v-model="busqueda">
             <br>
             <br>
+=======
+            <imagen-post :url="urlIMG" :url2="url2"></imagen-post>
+            <br><br>
+>>>>>>> props
             <lista-alerta></lista-alerta>
         </div>
     `,
@@ -40,8 +44,13 @@ const ListaPersonas = {
             nombres: ["Juan","Pedro","Maria","Minerva","Jose"],
             nombres2: ["Juan","Pedro","Maria","Minerva","Jose"],
             validando: false,
+<<<<<<< HEAD
             ciudades: ["Barinas", "Santiago", "Caracas", "Viña del Mar","Bogota"],
             busqueda: '',
+=======
+            urlIMG: "https://cdn.pixabay.com/photo/2020/02/07/14/49/glacier-4827387_960_720.jpg",
+            url2: "https://placeholder.pics/svg/150"
+>>>>>>> props
         }
     },
     filters: {
