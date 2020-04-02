@@ -29,7 +29,7 @@
 
 ## Ejemplo_8
 
-* Implementacion de Webpack con Vue en el proyecto.
+* Implementacion de Webpack-Bael con Vue en el proyecto.
     - Creacion de la carpeta del proyecto.
     - Creacion del package.json por la terminal con ```npm init -y```
     - Instalación de los dependencias mediante el comendo: ```npm install vue webpack webpack-cli --save-dev``` utilizando las dependencias para desarrollo.
@@ -38,9 +38,11 @@
     - Creacion de componentes, importar y exportar archivos, instancia de Vue.
     - Instalacion de la dependencia de HTML Webpack: ```npm i --save-dev html-webpack-plugin```
     - Instalacion de la dependencia ```npm i -D vue-loader vue-template-compiler```
+    - Instalacion de la dependencia para servidor: ```npm i -D webpack-dev-server```
+    - Instalacion de las dependencias de babel: ```npm i -D @babel/core @babel/cli @babel/preset-env babel-loader```
 
 * En total, las dependencias basicas a isntalar serian:
-* 
+  
 ```bash
 npm i -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env css-loader vue-style-loader html-webpack-plugin
 ```
