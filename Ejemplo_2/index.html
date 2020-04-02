@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ejemplo 1 - VueJS</title>
+</head>
+<body>
+    <h1>Inciando con VueJS</h1>
+    <div id="vm">
+        <!-- Utilizado V-IF-->
+        <div v-if="mostrar">
+            <!--Ambito del VueJS-->
+            {{mensaje}}
+            <p>{{revertirMensaje}}</p>
+        </div>
+        <div v-else>
+            <p>Realizado directamente desdel el ambito {{ mensaje.split('').reverse().join('')}}</p>
+            <p>Resultado de la Suma: {{calculaSuma(valor,4)}}</p>
+        </div>
+        <div v-if="valor >= 5 && valor <= 9">
+            <p>El Valor es mayor que 5 y menor que 9</p>
+        </div>
+        <div v-else-if="valor === 10">
+            <p>El valor es igual a 10</p>
+            <p>Resultado de la Suma: {{calculaSuma(valor,4)}}</p>
+        </div>
+        <div v-else>
+            <p>No es mayor que 5 ni igual ue 10</p>
+            <p>Realizado directamente desdel el ambito {{ mensaje.split('').reverse().join('')}}</p>
+        </div>
+        <!-- Utilizando V-FOR-->
+        <div v-for="(item, index) in nombres" :key="index">
+            {{index}}-{{item}}
+        </div>
+        <!-- Utilizando V-HTML-->
+        <div>
+            <br>Sin directiva v-html
+            {{conte_html}}
+            <div>Con directiva v-html: <span v-html="conte_html"></span></div>
+        </div>
+        <!-- Utilizando V-BIND-->
+        <p>Utilizado v-bind</p>
+        <img v-bind:src="direccion" :alt="alterna">
+        <h1 :class="{error: data_error, no_error: !data_error}">Texto con clases V-BIND</h1>
+        <!--Utilizando V-MODEL-->
+        <hr>
+        <input type="text" v-model="vmodel">
+        <p>{{vmodel}}</p>
+        <!-- Utilizando V-SHOW-->
+        <p>Utilizado v-show</p>
+        <h1 v-show="data_error">Texto con v-show para mostrar y ocultar</h1>
+    </div>
+    <!--Llamando a VueJS por CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/directivas.js"></script>
+</body>
+</html>
