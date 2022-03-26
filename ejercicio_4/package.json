@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
